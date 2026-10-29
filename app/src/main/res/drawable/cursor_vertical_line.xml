@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/cursor_vertical_line.xml
+     Thin vertical blinking cursor shown inside OTP circle when focused -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#1ABC9C" />
+    <size
+        android:width="2dp"
+        android:height="300dp" />
+</shape>

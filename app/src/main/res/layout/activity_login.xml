@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="26dp"
+        android:paddingEnd="26dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="36dp">
+
+        <!-- ════════════════════════════════
+             LOGO + BRANDING
+        ════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/layoutLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="36dp">
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center">
+
+                <View
+                    android:id="@+id/ringOuter"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_ring_outer"
+                    android:alpha="0.2" />
+
+                <View
+                    android:id="@+id/ringMiddle"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_ring_outer"
+                    android:alpha="0.35" />
+
+                <FrameLayout
+                    android:id="@+id/frameLogo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_logo_rounded">
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_school1"
+                        android:contentDescription="Academy Hub" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Academy Hub"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Student Learning Portal"
+                android:textSize="12sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- ════════════════════════════════
+             STEP 1 — PHONE NUMBER
+        ════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/layoutPhoneStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login to Your Account"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your registered mobile number"
+                android:textSize="12sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="18dp" />
+
+            <!-- Phone input -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_input_outline"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_language"
+                        android:contentDescription="Country Code"
+                        android:alpha="0.6" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+91"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground"
+                        android:layout_marginStart="6dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="22dp"
+                    android:background="?attr/colorControlNormal"
+                    android:alpha="0.3" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="8dp"
+                    android:hint="Enter mobile number"
+                    android:textSize="15sp"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:background="@null"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textColorHint="?attr/colorControlNormal" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="14dp"
+                    android:src="@drawable/ic_phone"
+                    android:contentDescription="Phone"
+                    android:alpha="0.4" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSendOtp"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Send OTP"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:layout_marginTop="16dp"
+                app:backgroundTint="#1ABC9C"
+                app:cornerRadius="13dp" />
+
+        </LinearLayout>
+
+        <!-- ════════════════════════════════
+             STEP 2 — OTP VERIFICATION
+        ════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/layoutOtpStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_otp_icon_circle"
+                android:layout_marginBottom="16dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_shield"
+                    android:contentDescription="Verified" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter Verification Code"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvOtpSentTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We've sent a 6-digit code to your registered mobile number"
+                android:textSize="12sp"
+                android:textColor="?attr/colorControlNormal"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="30dp" />
+
+            <!-- ── 6 OTP CIRCLE BOXES ──
+                 Each box is a circle (48x48dp).
+                 EditText inside with:
+                   - background @null  (circle drawn by FrameLayout)
+                   - cursorVisible true + textCursorDrawable @drawable/cursor_vertical_line
+                   - gravity center
+                 The FrameLayout background swaps between
+                 bg_otp_circle_empty  (gray border)
+                 bg_otp_circle_active (teal fill + border)
+                 via Kotlin refreshAllCircles()
+            -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="28dp">
+
+                <!-- Box 1 -->
+                <FrameLayout
+                    android:id="@+id/frameOtp1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_otp_circle_empty">
+                    <EditText
+                        android:id="@+id/etOtp1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@drawable/cursor_vertical_line"
+                        android:padding="0dp" />
+                </FrameLayout>
+
+                <!-- Box 2 -->
+                <FrameLayout
+                    android:id="@+id/frameOtp2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_otp_circle_empty">
+                    <EditText
+                        android:id="@+id/etOtp2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@drawable/cursor_vertical_line"
+                        android:padding="0dp" />
+                </FrameLayout>
+
+                <!-- Box 3 -->
+                <FrameLayout
+                    android:id="@+id/frameOtp3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_otp_circle_empty">
+                    <EditText
+                        android:id="@+id/etOtp3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@drawable/cursor_vertical_line"
+                        android:padding="0dp" />
+                </FrameLayout>
+
+                <!-- Box 4 -->
+                <FrameLayout
+                    android:id="@+id/frameOtp4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_otp_circle_empty">
+                    <EditText
+                        android:id="@+id/etOtp4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@drawable/cursor_vertical_line"
+                        android:padding="0dp" />
+                </FrameLayout>
+
+                <!-- Box 5 -->
+                <FrameLayout
+                    android:id="@+id/frameOtp5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_otp_circle_empty">
+                    <EditText
+                        android:id="@+id/etOtp5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@drawable/cursor_vertical_line"
+                        android:padding="0dp" />
+                </FrameLayout>
+
+                <!-- Box 6 -->
+                <FrameLayout
+                    android:id="@+id/frameOtp6"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/bg_otp_circle_empty">
+                    <EditText
+                        android:id="@+id/etOtp6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@drawable/cursor_vertical_line"
+                        android:padding="0dp" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Hidden compat -->
+            <EditText
+                android:id="@+id/etOtp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:inputType="number"
+                android:maxLength="6" />
+
+            <!-- Verify button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVerifyOtp"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Verify &amp; Login"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                app:backgroundTint="#1ABC9C"
+                app:cornerRadius="13dp" />
+
+            <!-- Resend + Change number -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="18dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_resend_pill"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:src="@drawable/ic_timer"
+                        android:contentDescription="Timer"
+                        android:alpha="0.7" />
+
+                    <TextView
+                        android:id="@+id/tvResendOtp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resend in 60s"
+                        android:textColor="#1ABC9C"
+                        android:textSize="12sp"
+                        android:enabled="false"
+                        android:layout_marginStart="6dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvChangeNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="← Change Number"
+                    android:textColor="?attr/colorControlNormal"
+                    android:textSize="12sp"
+                    android:layout_marginTop="12dp"
+                    android:padding="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+
+        <!-- ════════════════════════════════
+             BOTTOM — Register + Help Center
+        ════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/layoutBottomActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorControlNormal"
+                android:alpha="0.12"
+                android:layout_marginBottom="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Register Card -->
+                <LinearLayout
+                    android:id="@+id/cardRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_action_card"
+                    android:padding="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_person_add"
+                        android:contentDescription="Register"
+                        android:layout_marginBottom="7dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New student? Sign up"
+                        android:textSize="10sp"
+                        android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- Help Center Card -->
+                <LinearLayout
+                    android:id="@+id/cardHelp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_action_card"
+                    android:padding="16dp"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_help"
+                        android:contentDescription="Help"
+                        android:layout_marginBottom="7dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Help Center"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnBackground" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Questions? Contact us"
+                        android:textSize="10sp"
+                        android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp">
+
+        <!-- Green left indicator bar — animated on focus -->
+        <View
+            android:id="@+id/indicatorBar"
+            android:layout_width="3dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_indicator_bar"
+            android:layout_marginEnd="12dp"
+            android:visibility="invisible" />
+
+        <!-- Subject name + code -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSubjectName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject Name"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvSubjectCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code"
+                android:textSize="11sp"
+                android:textColor="#075E54"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- % input with rounded border, turns green on focus -->
+        <LinearLayout
+            android:layout_width="88dp"
+            android:layout_height="44dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bg_percentage_input">
+
+            <EditText
+                android:id="@+id/etPercentage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="--"
+                android:textColorHint="?attr/colorControlNormal"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:inputType="number"
+                android:maxLength="3"
+                android:imeOptions="actionNext"
+                android:paddingStart="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:textSize="13sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Thin bottom divider (hidden on last item) -->
+    <View
+        android:id="@+id/subjectDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="?attr/colorControlHighlight" />
+
+</LinearLayout>

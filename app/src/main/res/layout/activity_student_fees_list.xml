@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="12dp"
+        android:elevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@drawable/ic_back" android:padding="12dp"
+                android:contentDescription="Back"
+                android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF"/>
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical"
+                android:layout_marginStart="4dp">
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Student Fees"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tvGroupBadge"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#AAFFEE" android:textSize="11sp"
+                    android:layout_marginTop="2dp" android:maxLines="1" android:ellipsize="end"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Summary row -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp">
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvTotalStudents"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Students"
+                    android:textColor="#AAFFEE" android:textSize="10sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvTotalCollected"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="₹0"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Collected"
+                    android:textColor="#AAFFEE" android:textSize="10sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvTotalPending"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="₹0"
+                    android:textColor="#FFCDD2" android:textSize="18sp" android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Pending"
+                    android:textColor="#AAFFEE" android:textSize="10sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"/>
+
+    <!-- Search + Filter bar -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingStart="12dp" android:paddingEnd="12dp"
+        android:background="?attr/colorSurface" android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="0dp" android:layout_height="38dp"
+            android:layout_weight="1" android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_search_field"
+            android:paddingStart="12dp" android:paddingEnd="8dp">
+            <ImageView
+                android:layout_width="16dp" android:layout_height="16dp"
+                android:src="@drawable/ic_search" android:contentDescription="Search"
+                android:layout_marginEnd="8dp" app:tint="?attr/colorControlNormal"/>
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Search students..."
+                android:textSize="13sp" android:maxLines="1"
+                android:inputType="text" android:imeOptions="actionSearch"/>
+            <ImageView
+                android:id="@+id/btnClearSearch"
+                android:layout_width="18dp" android:layout_height="18dp"
+                android:src="@drawable/ic_close" android:contentDescription="Clear"
+                android:clickable="true" android:focusable="true"
+                android:visibility="gone" app:tint="?attr/colorControlNormal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Status filter chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent" android:layout_height="44dp"
+        android:scrollbars="none" android:overScrollMode="never"
+        android:background="?attr/colorSurface">
+        <LinearLayout
+            android:layout_width="wrap_content" android:layout_height="match_parent"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingStart="12dp" android:paddingEnd="12dp">
+
+            <TextView android:id="@+id/chipAll"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:text="All" android:gravity="center"
+                android:textSize="12sp" android:textStyle="bold"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_day_chip_active"
+                android:textColor="#FFFFFF"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/chipPaid"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:text="Paid" android:gravity="center"
+                android:textSize="12sp" android:textStyle="bold"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_day_chip_inactive"
+                android:textColor="#AAFFEE"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/chipPartial"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:text="Partial" android:gravity="center"
+                android:textSize="12sp" android:textStyle="bold"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_day_chip_inactive"
+                android:textColor="#AAFFEE"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/chipPending"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:text="Pending" android:gravity="center"
+                android:textSize="12sp" android:textStyle="bold"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:background="@drawable/bg_day_chip_inactive"
+                android:textColor="#AAFFEE"
+                android:clickable="true" android:focusable="true"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Empty state -->
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="72dp" android:layout_height="72dp"
+            android:src="@drawable/ic_students"
+            android:contentDescription="Empty" android:alpha="0.25"
+            app:tint="?attr/colorControlNormal"/>
+        <TextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="No students found"
+            android:textSize="14sp" android:textColor="?attr/colorControlNormal"
+            android:gravity="center" android:layout_marginTop="12dp"/>
+    </LinearLayout>
+
+    <!-- List -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStudentFees"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:padding="0dp" android:overScrollMode="never"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

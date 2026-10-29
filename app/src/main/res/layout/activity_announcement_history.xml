@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- HEADER with search -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="10dp" android:elevation="4dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <ImageView android:id="@+id/btnBack"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@drawable/ic_back" android:padding="12dp"
+                android:contentDescription="Back" android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF"/>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Announcement History"
+                    android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvCount"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Loading..." android:textColor="#AAFFEE" android:textSize="11sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <ImageView android:layout_width="26dp" android:layout_height="26dp"
+                android:src="@drawable/ic_announcement" android:contentDescription="Announcements"
+                app:tint="#AAFFEE"/>
+        </LinearLayout>
+
+        <!-- Search bar -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="38dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:background="@drawable/bg_search_bar_white"
+            android:layout_marginTop="10dp" android:layout_marginBottom="2dp"
+            android:paddingStart="12dp" android:paddingEnd="8dp">
+            <ImageView android:layout_width="15dp" android:layout_height="15dp"
+                android:src="@drawable/ic_search" android:contentDescription="Search"
+                android:layout_marginEnd="8dp" app:tint="@color/primary_color"/>
+            <EditText android:id="@+id/etSearch"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Search announcements..."
+                android:textColorHint="#80075E54"
+                android:textSize="13sp" android:textColor="@color/primary_color"
+                android:maxLines="1" android:imeOptions="actionSearch"/>
+            <ImageView android:id="@+id/btnClear"
+                android:layout_width="22dp" android:layout_height="22dp"
+                android:src="@drawable/ic_close" android:contentDescription="Clear"
+                android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:visibility="gone" app:tint="@color/primary_color"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Linear progress -->
+    <ProgressBar android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp"
+        android:indeterminate="true" android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"/>
+
+    <!-- IMPORTANT 2: Course filter chips -->
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="48dp"
+        android:scrollbars="none" android:overScrollMode="never"
+        android:background="?attr/colorSurface" android:elevation="2dp">
+        <LinearLayout android:id="@+id/llFilterChips"
+            android:layout_width="wrap_content" android:layout_height="match_parent"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingStart="12dp" android:paddingEnd="12dp"/>
+    </HorizontalScrollView>
+
+    <!-- Empty state -->
+    <LinearLayout android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center"
+        android:visibility="gone">
+        <ImageView android:layout_width="64dp" android:layout_height="64dp"
+            android:src="@drawable/ic_announcement" android:alpha="0.22"
+            android:contentDescription="Empty" app:tint="?attr/colorControlNormal"/>
+        <TextView android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="No announcements found"
+            android:textSize="14sp" android:textColor="?attr/colorControlNormal"
+            android:layout_marginTop="10dp" android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- SwipeRefresh + List -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAnnouncements"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="?attr/colorSurface"
+    android:paddingStart="16dp" android:paddingEnd="12dp"
+    android:paddingTop="14dp" android:paddingBottom="14dp"
+    android:layout_marginTop="1dp"
+    android:clickable="true" android:focusable="true">
+
+    <!-- Status accent bar -->
+    <View
+        android:id="@+id/viewStatusBar"
+        android:layout_width="3dp" android:layout_height="40dp"
+        android:background="@color/primary_color"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Avatar circle -->
+    <FrameLayout
+        android:layout_width="40dp" android:layout_height="40dp"
+        android:background="@drawable/bg_status_active">
+        <TextView
+            android:id="@+id/tvInitials"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="A"
+            android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
+    </FrameLayout>
+
+    <!-- Student info -->
+    <LinearLayout
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/tvStudentName"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Student Name"
+            android:textSize="14sp" android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:maxLines="1" android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/tvRollNumber"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Roll: 001"
+            android:textSize="11sp"
+            android:textColor="?attr/colorControlNormal"
+            android:layout_marginTop="2dp"/>
+
+        <!-- Fees mini progress bar -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="5dp">
+
+            <ProgressBar
+                android:id="@+id/miniProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp" android:layout_height="4dp"
+                android:layout_weight="1"
+                android:max="100" android:progress="0"
+                android:progressTint="@color/primary_color"
+                android:progressBackgroundTint="#E0E0E0"/>
+
+            <TextView
+                android:id="@+id/tvPaidPercent"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="10sp"
+                android:textColor="@color/primary_color"
+                android:textStyle="bold"
+                android:layout_marginStart="6dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Right: Amount + Status + Pay button -->
+    <LinearLayout
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="vertical" android:gravity="end"
+        android:layout_marginStart="8dp">
+
+        <TextView
+            android:id="@+id/tvPendingFees"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="₹0"
+            android:textSize="14sp" android:textStyle="bold"
+            android:textColor="#C62828"/>
+
+        <TextView
+            android:id="@+id/tvFeesStatus"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Pending"
+            android:textSize="10sp" android:textStyle="bold"
+            android:paddingStart="8dp" android:paddingEnd="8dp"
+            android:paddingTop="2dp" android:paddingBottom="2dp"
+            android:background="@drawable/bg_type_chip"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Pay button — only visible if due > 0 -->
+        <TextView
+            android:id="@+id/btnPayFees"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Pay →"
+            android:textSize="10sp" android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:paddingStart="10dp" android:paddingEnd="10dp"
+            android:paddingTop="4dp" android:paddingBottom="4dp"
+            android:background="@drawable/bg_chip_active"
+            android:layout_marginTop="5dp"
+            android:clickable="true" android:focusable="true"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

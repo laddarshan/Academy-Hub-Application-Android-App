@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- HEADER -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="10dp" android:elevation="4dp">
+
+        <!-- Back + Title + Mark all read -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+
+            <ImageView android:id="@+id/btnBack"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@drawable/ic_back" android:padding="12dp"
+                android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF"/>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical"
+                android:layout_marginStart="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Notifications"
+                    android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvCount"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Loading..."
+                    android:textColor="#AAFFEE" android:textSize="11sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Mark all read button -->
+            <TextView android:id="@+id/btnMarkAllRead"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Mark all read"
+                android:textColor="#CCFFFFFF" android:textSize="11sp"
+                android:background="@drawable/bg_header_btn"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:paddingTop="6dp" android:paddingBottom="6dp"
+                android:clickable="true" android:focusable="true"/>
+        </LinearLayout>
+
+        <!-- Search bar -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="38dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:background="@drawable/bg_search_bar_white"
+            android:layout_marginTop="10dp" android:layout_marginBottom="8dp"
+            android:paddingStart="12dp" android:paddingEnd="8dp">
+            <ImageView android:layout_width="15dp" android:layout_height="15dp"
+                android:src="@drawable/ic_search"
+                android:layout_marginEnd="8dp" app:tint="@color/primary_color"/>
+            <EditText android:id="@+id/etSearch"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Search notifications..."
+                android:textColorHint="#80075E54"
+                android:textSize="13sp" android:textColor="@color/primary_color"
+                android:maxLines="1" android:imeOptions="actionSearch"/>
+            <ImageView android:id="@+id/btnClear"
+                android:layout_width="22dp" android:layout_height="22dp"
+                android:src="@drawable/ic_close"
+                android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:visibility="gone" app:tint="@color/primary_color"/>
+        </LinearLayout>
+
+        <!-- Filter chips -->
+        <HorizontalScrollView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:scrollbars="none"
+            android:layout_marginBottom="4dp">
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/chipAll"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="All"
+                    android:background="@drawable/bg_chip_selected_white"
+                    android:textColor="@color/primary_color" android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:paddingStart="16dp" android:paddingEnd="16dp"
+                    android:paddingTop="6dp" android:paddingBottom="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true" android:focusable="true"/>
+                <TextView android:id="@+id/chipUnread"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Unread"
+                    android:background="@drawable/bg_chip_outline_white"
+                    android:textColor="#CCFFFFFF" android:textSize="12sp"
+                    android:paddingStart="16dp" android:paddingEnd="16dp"
+                    android:paddingTop="6dp" android:paddingBottom="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true" android:focusable="true"/>
+                <TextView android:id="@+id/chipImportant"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="⚡ Important"
+                    android:background="@drawable/bg_chip_outline_white"
+                    android:textColor="#CCFFFFFF" android:textSize="12sp"
+                    android:paddingStart="16dp" android:paddingEnd="16dp"
+                    android:paddingTop="6dp" android:paddingBottom="6dp"
+                    android:clickable="true" android:focusable="true"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <!-- Progress bar -->
+    <ProgressBar android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp"
+        android:indeterminate="true" android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"/>
+
+    <!-- Empty state -->
+    <LinearLayout android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center"
+        android:visibility="gone">
+        <ImageView android:layout_width="64dp" android:layout_height="64dp"
+            android:src="@drawable/ic_bell" android:alpha="0.22"
+            app:tint="?attr/colorControlNormal"/>
+        <TextView android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Koi notification nathi"
+            android:textSize="14sp" android:textColor="?attr/colorControlNormal"
+            android:layout_marginTop="10dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Admin moklashe tyare ahi dekhay chhe"
+            android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+            android:alpha="0.6" android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- SwipeRefresh + RecyclerView -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNotifications"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:paddingTop="6dp" android:paddingBottom="20dp"
+            android:clipToPadding="false"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

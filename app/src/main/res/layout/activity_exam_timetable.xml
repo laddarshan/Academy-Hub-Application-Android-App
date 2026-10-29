@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ══ HEADER ══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#075E54"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="16dp"
+        android:elevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@drawable/ic_back"
+                android:padding="12dp"
+                android:contentDescription="Back"
+                android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF"/>
+
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Exam Timetable"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvGroupBadge"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="#AAFFEE"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text=""/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Thin progress bar -->
+    <ProgressBar
+        android:id="@+id/progressBarTop"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#075E54"
+        android:visibility="gone"/>
+
+    <!-- ══ CONTENT ══ -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:id="@+id/layoutContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="32dp"
+                android:alpha="0">
+
+                <!-- ════ INTERNAL EXAM CARD ════ -->
+                <LinearLayout
+                    android:id="@+id/cardInternal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_section_card"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="2dp">
+
+                    <!-- Card Header Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="12dp">
+
+                        <!-- Icon circle -->
+                        <FrameLayout
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:background="@drawable/bg_status_active">
+                            <ImageView
+                                android:layout_width="22dp" android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_internal_exam"
+                                android:contentDescription="Internal"/>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Internal Exam"
+                                android:textSize="16sp" android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Upload timetable image or PDF"
+                                android:textSize="12sp"
+                                android:textColor="?attr/colorControlNormal"/>
+                        </LinearLayout>
+
+                        <!-- Upload button -->
+                        <LinearLayout
+                            android:id="@+id/btnUploadInternal"
+                            android:layout_width="wrap_content" android:layout_height="36dp"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:background="@drawable/bg_upload_btn"
+                            android:paddingStart="14dp" android:paddingEnd="14dp"
+                            android:clickable="true" android:focusable="true">
+                            <ImageView
+                                android:layout_width="16dp" android:layout_height="16dp"
+                                android:src="@drawable/ic_upload"
+                                android:contentDescription="Upload"
+                                android:layout_marginEnd="6dp"/>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Upload"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp" android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="70dp"
+                        android:background="?attr/colorControlHighlight"/>
+
+                    <!-- Progress bar (upload) -->
+                    <ProgressBar
+                        android:id="@+id/progressInternal"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="#075E54"
+                        android:visibility="gone"
+                        android:layout_marginTop="2dp"/>
+
+                    <!-- Empty State -->
+                    <LinearLayout
+                        android:id="@+id/layoutInternalEmpty"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/bg_empty_state"
+                        android:layout_margin="16dp">
+
+                        <ImageView
+                            android:layout_width="28dp" android:layout_height="28dp"
+                            android:src="@drawable/ic_internal_exam"
+                            android:contentDescription="Empty"
+                            android:alpha="0.35"/>
+                        <TextView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="No timetable uploaded yet"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorControlNormal"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                    <!-- Preview Card (shown after upload) -->
+                    <LinearLayout
+                        android:id="@+id/cardInternalPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_preview_card"
+                        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:clickable="true" android:focusable="true"
+                        android:visibility="gone">
+
+                        <!-- Thumbnail (image only) -->
+                        <ImageView
+                            android:id="@+id/ivInternalThumbnail"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingStart="14dp" android:paddingEnd="14dp">
+
+                            <ImageView
+                                android:id="@+id/ivInternalIcon"
+                                android:layout_width="22dp" android:layout_height="22dp"
+                                android:src="@drawable/ic_image_file"
+                                android:contentDescription="File type"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="10dp">
+
+                                <TextView
+                                    android:id="@+id/tvInternalFileType"
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="Image"
+                                    android:textSize="13sp" android:textStyle="bold"
+                                    android:textColor="#075E54"/>
+
+                                <TextView
+                                    android:id="@+id/tvInternalFileName"
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="filename.jpg"
+                                    android:textSize="11sp"
+                                    android:textColor="?attr/colorControlNormal"
+                                    android:ellipsize="end" android:maxLines="1"/>
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_eye"
+                                android:contentDescription="View"
+                                android:layout_marginEnd="4dp"/>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="View"
+                                android:textSize="12sp" android:textStyle="bold"
+                                android:textColor="#075E54"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Delete button row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="8dp" android:paddingBottom="12dp">
+
+                        <TextView
+                            android:id="@+id/btnDeleteInternal"
+                            android:layout_width="wrap_content" android:layout_height="32dp"
+                            android:text="Delete File"
+                            android:textSize="12sp" android:textStyle="bold"
+                            android:textColor="#C62828"
+                            android:gravity="center"
+                            android:paddingStart="14dp" android:paddingEnd="14dp"
+                            android:background="@drawable/bg_status_blocked"
+                            android:clickable="true" android:focusable="true"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- ════ EXTERNAL EXAM CARD ════ -->
+                <LinearLayout
+                    android:id="@+id/cardExternal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_section_card"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="2dp">
+
+                    <!-- Card Header Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:paddingTop="16dp" android:paddingBottom="12dp">
+
+                        <FrameLayout
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:background="@drawable/bg_status_pending">
+                            <ImageView
+                                android:layout_width="22dp" android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_external_exam"
+                                android:contentDescription="External"/>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="External Exam"
+                                android:textSize="16sp" android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Upload timetable image or PDF"
+                                android:textSize="12sp"
+                                android:textColor="?attr/colorControlNormal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/btnUploadExternal"
+                            android:layout_width="wrap_content" android:layout_height="36dp"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:background="@drawable/bg_upload_btn"
+                            android:paddingStart="14dp" android:paddingEnd="14dp"
+                            android:clickable="true" android:focusable="true">
+                            <ImageView
+                                android:layout_width="16dp" android:layout_height="16dp"
+                                android:src="@drawable/ic_upload"
+                                android:contentDescription="Upload"
+                                android:layout_marginEnd="6dp"/>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Upload"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp" android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:layout_marginStart="70dp"
+                        android:background="?attr/colorControlHighlight"/>
+
+                    <ProgressBar
+                        android:id="@+id/progressExternal"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="#075E54"
+                        android:visibility="gone"
+                        android:layout_marginTop="2dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/layoutExternalEmpty"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/bg_empty_state"
+                        android:layout_margin="16dp">
+
+                        <ImageView
+                            android:layout_width="28dp" android:layout_height="28dp"
+                            android:src="@drawable/ic_external_exam"
+                            android:contentDescription="Empty"
+                            android:alpha="0.35"/>
+                        <TextView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="No timetable uploaded yet"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorControlNormal"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardExternalPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_preview_card"
+                        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:clickable="true" android:focusable="true"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/ivExternalThumbnail"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingStart="14dp" android:paddingEnd="14dp">
+
+                            <ImageView
+                                android:id="@+id/ivExternalIcon"
+                                android:layout_width="22dp" android:layout_height="22dp"
+                                android:src="@drawable/ic_image_file"
+                                android:contentDescription="File type"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="10dp">
+
+                                <TextView
+                                    android:id="@+id/tvExternalFileType"
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="Image"
+                                    android:textSize="13sp" android:textStyle="bold"
+                                    android:textColor="#075E54"/>
+
+                                <TextView
+                                    android:id="@+id/tvExternalFileName"
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="filename.pdf"
+                                    android:textSize="11sp"
+                                    android:textColor="?attr/colorControlNormal"
+                                    android:ellipsize="end" android:maxLines="1"/>
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="18dp" android:layout_height="18dp"
+                                android:src="@drawable/ic_eye"
+                                android:contentDescription="View"
+                                android:layout_marginEnd="4dp"/>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="View"
+                                android:textSize="12sp" android:textStyle="bold"
+                                android:textColor="#075E54"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="8dp" android:paddingBottom="12dp">
+
+                        <TextView
+                            android:id="@+id/btnDeleteExternal"
+                            android:layout_width="wrap_content" android:layout_height="32dp"
+                            android:text="Delete File"
+                            android:textSize="12sp" android:textStyle="bold"
+                            android:textColor="#C62828"
+                            android:gravity="center"
+                            android:paddingStart="14dp" android:paddingEnd="14dp"
+                            android:background="@drawable/bg_status_blocked"
+                            android:clickable="true" android:focusable="true"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

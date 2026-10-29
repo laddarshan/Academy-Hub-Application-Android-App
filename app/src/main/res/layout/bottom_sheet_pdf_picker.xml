@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp" android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_drag_handle"/>
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#075E54"
+        android:paddingStart="18dp" android:paddingEnd="18dp"
+        android:paddingTop="14dp" android:paddingBottom="14dp">
+
+        <ImageView
+            android:layout_width="22dp" android:layout_height="22dp"
+            android:src="@drawable/ic_upload"
+            android:contentDescription="Upload"
+            app:tint="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Upload Result PDF"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" android:textStyle="bold"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Select the PDF file to upload"
+        android:textSize="12sp"
+        android:textColor="?attr/colorControlNormal"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- PDF Option -->
+    <LinearLayout
+        android:id="@+id/btnPickPdf"
+        android:layout_width="match_parent" android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="18dp" android:paddingEnd="18dp"
+        android:clickable="true" android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <FrameLayout
+            android:layout_width="42dp" android:layout_height="42dp"
+            android:background="@drawable/bg_status_active">
+            <ImageView
+                android:layout_width="22dp" android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_pdf"
+                android:contentDescription="PDF"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="14dp">
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="PDF Document"
+                android:textSize="15sp" android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="application/pdf format only"
+                android:textSize="12sp"
+                android:textColor="?attr/colorControlNormal"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="18dp" android:layout_height="18dp"
+            android:src="@drawable/ic_arrow_right"
+            android:contentDescription="Select"
+            app:tint="#075E54"/>
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="24dp"/>
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- WhatsApp Theme Colors -->
+    <color name="whatsapp_primary">#0A8172</color>
+    <color name="whatsapp_primary_dark">#075E54</color>
+    <color name="whatsapp_accent">#25D366</color>
+
+    <!-- Primary Colors (Dark Mode) -->
+    <color name="primary_color">#0A8172</color>
+    <color name="primary_dark">#075E54</color>
+    <color name="accent_color">#25D366</color>
+
+    <!-- Background Colors (Dark Mode) -->
+    <color name="background_color">#78C2B0</color>
+    <color name="surface_color">#65B4AB</color>
+    <color name="card_background">#327E6C</color>
+
+    <!-- Text Colors (Dark Mode) -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_hint">#757575</color>
+
+    <!-- Status Colors -->
+    <color name="status_bar">#3F3E3E</color>
+    <color name="error_color">#F44336</color>
+    <color name="success_color">#4CAF50</color>
+    <color name="warning_color">#FF9800</color>
+
+    <!-- Common Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Divider & Border (Dark Mode) -->
+    <color name="divider_color">#464646</color>
+    <color name="border_color">#565656</color>
+
+    <!-- Additional UI Colors -->
+    <color name="ripple_color">#2D464444</color>
+    <color name="overlay_color">#80303030</color>
+</resources>

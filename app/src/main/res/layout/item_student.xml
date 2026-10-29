@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp"
+        android:background="?attr/selectableItemBackground">
+
+        <!-- Checkbox — multi-select mode ma visible thay chhe -->
+        <CheckBox
+            android:id="@+id/cbSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_marginEnd="8dp"
+            android:buttonTint="#075E54"/>
+
+        <!-- Avatar / Profile photo -->
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivStudentProfile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_student_default"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#075E54"/>
+
+            <FrameLayout
+                android:id="@+id/avatarFallback"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_avatar_circle"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/tvAvatarLetter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="A"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+        </FrameLayout>
+
+        <!-- Student info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/tvStudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Student Name"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/tvStudentCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BCA · TY · Sem-6"
+                android:textSize="12sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="2dp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#075E54"
+                    android:background="@drawable/bg_status_active"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"/>
+
+                <TextView
+                    android:id="@+id/tvFeesStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paid"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#E65100"
+                    android:background="@drawable/bg_status_pending"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginStart="6dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Roll + More -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingEnd="4dp">
+
+            <TextView
+                android:id="@+id/tvRollNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textSize="11sp"
+                android:textColor="#075E54"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/btnMore"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_more_vert"
+                android:padding="4dp"
+                android:contentDescription="More"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginTop="6dp"
+                app:tint="?attr/colorControlNormal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/itemDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="76dp"
+        android:background="?attr/colorControlHighlight"/>
+
+</LinearLayout>

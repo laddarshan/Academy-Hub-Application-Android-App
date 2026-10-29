@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="12dp"
+        android:elevation="6dp">
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="48dp" android:layout_height="48dp"
+            android:src="@drawable/ic_back" android:padding="12dp"
+            android:contentDescription="Back"
+            android:clickable="true" android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#FFFFFF"/>
+        <LinearLayout
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:layout_marginStart="4dp">
+            <TextView
+                android:id="@+id/tvStudentName"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Student Name"
+                android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvRollCourse"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#AAFFEE" android:textSize="11sp"
+                android:layout_marginTop="2dp" android:maxLines="1" android:ellipsize="end"/>
+        </LinearLayout>
+        <!-- Add Payment FAB button -->
+        <LinearLayout
+            android:id="@+id/btnAddPayment"
+            android:layout_width="wrap_content" android:layout_height="36dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingStart="12dp" android:paddingEnd="12dp"
+            android:background="@drawable/bg_upload_btn"
+            android:clickable="true" android:focusable="true">
+            <ImageView
+                android:layout_width="16dp" android:layout_height="16dp"
+                android:src="@drawable/ic_add" android:contentDescription="Add"
+                android:layout_marginEnd="4dp" app:tint="#FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Pay"
+                android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp" android:paddingEnd="16dp"
+            android:paddingTop="20dp" android:paddingBottom="32dp">
+
+            <!-- Fees overview card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="14dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+
+                    <!-- Status chip -->
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+                        <View android:layout_width="3dp" android:layout_height="16dp"
+                            android:background="@drawable/bg_timetable_left_bar"
+                            android:layout_marginEnd="8dp"/>
+                        <TextView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Payment Status"
+                            android:textSize="12sp" android:textStyle="bold"
+                            android:textColor="@color/primary_color"/>
+                        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/tvFeesStatus"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Pending"
+                            android:textSize="12sp" android:textStyle="bold"
+                            android:paddingStart="12dp" android:paddingEnd="12dp"
+                            android:paddingTop="4dp" android:paddingBottom="4dp"
+                            android:background="@drawable/bg_type_chip"/>
+                    </LinearLayout>
+
+                    <!-- Progress bar -->
+                    <ProgressBar
+                        android:id="@+id/progressFees"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent" android:layout_height="8dp"
+                        android:max="100" android:progress="0"
+                        android:progressTint="@color/primary_color"
+                        android:progressBackgroundTint="#E0E0E0"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvPaidPercent"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="0% Paid"
+                        android:textSize="11sp" android:textColor="@color/primary_color"
+                        android:textStyle="bold" android:gravity="end"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Stats row -->
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvTotalFees"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="₹0"
+                                android:textSize="18sp" android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Total"
+                                android:textSize="11sp" android:textColor="?attr/colorControlNormal"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <View android:layout_width="1dp" android:layout_height="36dp"
+                            android:background="?attr/colorControlHighlight"/>
+                        <LinearLayout
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvPaidFees"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="₹0"
+                                android:textSize="18sp" android:textStyle="bold"
+                                android:textColor="#075E54"/>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Paid"
+                                android:textSize="11sp" android:textColor="?attr/colorControlNormal"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <View android:layout_width="1dp" android:layout_height="36dp"
+                            android:background="?attr/colorControlHighlight"/>
+                        <LinearLayout
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvPendingFees"
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="₹0"
+                                android:textSize="18sp" android:textStyle="bold"
+                                android:textColor="#C62828"/>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Pending"
+                                android:textSize="11sp" android:textColor="?attr/colorControlNormal"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Payment options -->
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+                <View android:layout_width="3dp" android:layout_height="16dp"
+                    android:background="@drawable/bg_timetable_left_bar"
+                    android:layout_marginEnd="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Payment Methods"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:textColor="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Payment method cards -->
+            <!-- Cash -->
+            <LinearLayout
+                android:id="@+id/btnPayCash"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="8dp" android:elevation="1dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="36dp" android:layout_height="36dp"
+                    android:background="@drawable/bg_stat_circle_teal">
+                    <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_fees"
+                        android:contentDescription="Cash" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="14dp"
+                    android:text="Cash Payment"
+                    android:textSize="14sp" android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_right" android:contentDescription="Go"
+                    app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Scan QR -->
+            <LinearLayout
+                android:id="@+id/btnScanQr"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="8dp" android:elevation="1dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="36dp" android:layout_height="36dp"
+                    android:background="@drawable/bg_stat_circle_blue">
+                    <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_qr"
+                        android:contentDescription="QR" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="14dp"
+                    android:text="Scan QR Code"
+                    android:textSize="14sp" android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_right" android:contentDescription="Go"
+                    app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- UPI -->
+            <LinearLayout
+                android:id="@+id/btnUpi"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="8dp" android:elevation="1dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="36dp" android:layout_height="36dp"
+                    android:background="@drawable/bg_stat_circle_orange">
+                    <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_mobile"
+                        android:contentDescription="UPI" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="14dp"
+                    android:text="UPI Apps"
+                    android:textSize="14sp" android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_right" android:contentDescription="Go"
+                    app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Debit/ATM Card -->
+            <LinearLayout
+                android:id="@+id/btnCard"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="8dp" android:elevation="1dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="36dp" android:layout_height="36dp"
+                    android:background="@drawable/bg_stat_circle_red">
+                    <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_card"
+                        android:contentDescription="Card" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="14dp"
+                    android:text="Debit / ATM Card"
+                    android:textSize="14sp" android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_right" android:contentDescription="Go"
+                    app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Net Banking -->
+            <LinearLayout
+                android:id="@+id/btnNetBanking"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="20dp" android:elevation="1dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="36dp" android:layout_height="36dp"
+                    android:background="@drawable/bg_stat_circle_teal">
+                    <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_school1"
+                        android:contentDescription="Bank" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="14dp"
+                    android:text="Net Banking"
+                    android:textSize="14sp" android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_right" android:contentDescription="Go"
+                    app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Payment History section -->
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+                <View android:layout_width="3dp" android:layout_height="16dp"
+                    android:background="@drawable/bg_timetable_left_bar"
+                    android:layout_marginEnd="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Payment History"
+                    android:textSize="13sp" android:textStyle="bold"
+                    android:textColor="@color/primary_color"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNoPayments"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="No payments recorded yet"
+                android:textSize="13sp" android:textColor="?attr/colorControlNormal"
+                android:gravity="center" android:paddingTop="20dp" android:paddingBottom="20dp"
+                android:visibility="visible"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPaymentHistory"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

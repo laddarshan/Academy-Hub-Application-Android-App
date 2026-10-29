@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- Main clickable row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <!-- Serial # -->
+        <TextView
+            android:id="@+id/tvSerialNo"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="12sp"
+            android:textColor="?attr/colorControlNormal"
+            android:gravity="center" />
+
+        <!-- Avatar circle with letter -->
+        <FrameLayout
+            android:id="@+id/avatarFrame"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:layout_marginStart="6dp">
+
+            <TextView
+                android:id="@+id/tvAvatarLetter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="A"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <!-- Name + Roll number -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/tvStudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Student Name"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvRollNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roll: --"
+                android:textSize="11sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="1dp" />
+        </LinearLayout>
+
+        <!-- Attendance: dot + % + arrow -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <View
+                android:id="@+id/attendanceDot"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/bg_dot_active"
+                android:layout_marginEnd="5dp" />
+
+            <TextView
+                android:id="@+id/tvOverallAttendance"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#075E54"
+                android:gravity="end" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_marginStart="6dp"
+                android:contentDescription="Open"
+                app:tint="?attr/colorControlNormal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Thin divider (hidden on last item via code) -->
+    <View
+        android:id="@+id/itemDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="66dp"
+        android:background="?attr/colorControlHighlight" />
+
+</LinearLayout>

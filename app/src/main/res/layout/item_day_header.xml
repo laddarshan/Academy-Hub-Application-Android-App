@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background_color">
+
+    <TextView
+        android:id="@+id/tvDayName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Monday"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:padding="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
+        android:background="@color/background_color" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/primary_color"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+</LinearLayout>

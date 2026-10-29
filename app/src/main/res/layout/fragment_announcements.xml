@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ── Teal sub-header with filter tabs ── -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/primary_color"
+        android:paddingTop="6dp" android:elevation="4dp">
+
+        <!-- Send button row -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSendAnnouncement"
+            android:layout_width="match_parent" android:layout_height="46dp"
+            android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+            android:layout_marginTop="6dp"
+            android:text="Send New Announcement"
+            android:textColor="@color/primary_color"
+            android:textSize="14sp" android:textStyle="bold"
+            android:textAllCaps="false"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_announcement"
+            app:iconGravity="textStart"
+            app:iconTint="@color/primary_color"
+            app:iconPadding="8dp"/>
+
+        <!-- Progress bar -->
+        <ProgressBar android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="3dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#FFFFFF"
+            android:visibility="gone"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Course filter tabs -->
+        <HorizontalScrollView
+            android:layout_width="match_parent" android:layout_height="42dp"
+            android:overScrollMode="never" android:scrollbars="none"
+            android:layout_marginTop="2dp">
+            <LinearLayout android:id="@+id/llCourseTabs"
+                android:layout_width="wrap_content" android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingStart="8dp" android:paddingEnd="8dp"
+                android:gravity="center_vertical"/>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- SwipeRefreshLayout wraps list + empty state -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+            <!-- Announcement list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAnnouncements"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:paddingTop="10dp" android:paddingBottom="80dp"
+                android:clipToPadding="false"
+                android:visibility="gone"/>
+
+            <!-- Empty state -->
+            <LinearLayout
+                android:id="@+id/layoutNoAnnouncements"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:orientation="vertical" android:gravity="center"
+                android:visibility="gone">
+
+                <FrameLayout android:layout_width="80dp" android:layout_height="80dp"
+                    android:background="@drawable/bg_stat_circle_teal" android:alpha="0.25">
+                    <ImageView android:layout_width="40dp" android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_announcement"
+                        android:contentDescription="No announcements"/>
+                </FrameLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="No announcements yet"
+                    android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="?attr/colorOnBackground"
+                    android:layout_marginTop="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Tap the button above to send one"
+                    android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
+
+        </FrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

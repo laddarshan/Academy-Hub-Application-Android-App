@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ══ COMPACT HEADER ══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/primary_color"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="14dp"
+        android:elevation="6dp">
+
+        <!-- Row: back + title + icon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_back"
+                android:padding="6dp"
+                android:contentDescription="Back"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Management"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select group to view students"
+                    android:textColor="#AAFFEE"
+                    android:textSize="11sp"
+                    android:layout_marginTop="1dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_students"
+                android:contentDescription="Students"
+                app:tint="#AAFFEE"/>
+        </LinearLayout>
+
+        <!-- Progress dots - compact -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <View android:id="@+id/dot1"
+                android:layout_width="10dp" android:layout_height="10dp"
+                android:background="@drawable/bg_dot_active"/>
+            <View android:layout_width="16dp" android:layout_height="2dp"
+                android:background="#44FFFFFF"
+                android:layout_marginStart="3dp" android:layout_marginEnd="3dp"/>
+            <View android:id="@+id/dot2"
+                android:layout_width="7dp" android:layout_height="7dp"
+                android:background="@drawable/bg_dot_inactive"/>
+            <View android:layout_width="16dp" android:layout_height="2dp"
+                android:background="#44FFFFFF"
+                android:layout_marginStart="3dp" android:layout_marginEnd="3dp"/>
+            <View android:id="@+id/dot3"
+                android:layout_width="7dp" android:layout_height="7dp"
+                android:background="@drawable/bg_dot_inactive"/>
+            <View android:layout_width="16dp" android:layout_height="2dp"
+                android:background="#44FFFFFF"
+                android:layout_marginStart="3dp" android:layout_marginEnd="3dp"/>
+            <View android:id="@+id/dot4"
+                android:layout_width="7dp" android:layout_height="7dp"
+                android:background="@drawable/bg_dot_inactive"/>
+            <View android:layout_width="16dp" android:layout_height="2dp"
+                android:background="#44FFFFFF"
+                android:layout_marginStart="3dp" android:layout_marginEnd="3dp"/>
+            <View android:id="@+id/dot5"
+                android:layout_width="7dp" android:layout_height="7dp"
+                android:background="@drawable/bg_dot_inactive"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Thin loading bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"/>
+
+    <!-- ══ SCROLL ══ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <!-- ════ STEP 1: SESSION ════ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardStep1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <!-- Step header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <FrameLayout
+                            android:id="@+id/frameStep1Circle"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_step_circle_active">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Select Session"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Choose academic session"
+                                android:textSize="11sp"
+                                android:textColor="?attr/colorControlNormal"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iconStep1Done"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_step_done"
+                            android:visibility="gone"
+                            android:contentDescription="Done"/>
+                    </LinearLayout>
+
+                    <!-- Custom selector button -->
+                    <LinearLayout
+                        android:id="@+id/selectorSession"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="12dp"
+                        android:background="@drawable/bg_selector_field"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:id="@+id/tvSessionSelected"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tap to select session"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorControlNormal"/>
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:rotation="90"
+                            android:contentDescription="Expand"
+                            app:tint="@color/primary_color"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════ STEP 2: COURSE ════ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardStep2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:alpha="0.45"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <FrameLayout
+                            android:id="@+id/frameStep2Circle"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_step_circle_inactive">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="2"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Select Course"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Choose your course"
+                                android:textSize="11sp"
+                                android:textColor="?attr/colorControlNormal"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iconStep2Done"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_step_done"
+                            android:visibility="gone"
+                            android:contentDescription="Done"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStep2Hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↑  Select a session first"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="12sp"/>
+
+                    <LinearLayout
+                        android:id="@+id/selectorCourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="12dp"
+                        android:background="@drawable/bg_selector_field"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvCourseSelected"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tap to select course"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorControlNormal"/>
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:rotation="90"
+                            android:contentDescription="Expand"
+                            app:tint="@color/primary_color"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════ STEP 3: YEAR ════ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardStep3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:alpha="0.45"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <FrameLayout
+                            android:id="@+id/frameStep3Circle"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_step_circle_inactive">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="3"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Select Year"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Choose academic year"
+                                android:textSize="11sp"
+                                android:textColor="?attr/colorControlNormal"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iconStep3Done"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_step_done"
+                            android:visibility="gone"
+                            android:contentDescription="Done"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStep3Hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↑  Select a course first"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="12sp"/>
+
+                    <LinearLayout
+                        android:id="@+id/selectorYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="12dp"
+                        android:background="@drawable/bg_selector_field"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvYearSelected"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tap to select year"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorControlNormal"/>
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:rotation="90"
+                            android:contentDescription="Expand"
+                            app:tint="@color/primary_color"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════ STEP 4: SEMESTER ════ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardStep4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:alpha="0.45"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <FrameLayout
+                            android:id="@+id/frameStep4Circle"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_step_circle_inactive">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="4"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Select Semester"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Choose semester"
+                                android:textSize="11sp"
+                                android:textColor="?attr/colorControlNormal"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iconStep4Done"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_step_done"
+                            android:visibility="gone"
+                            android:contentDescription="Done"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStep4Hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↑  Select a year first"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="12sp"/>
+
+                    <LinearLayout
+                        android:id="@+id/selectorSemester"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="12dp"
+                        android:background="@drawable/bg_selector_field"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvSemesterSelected"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tap to select semester"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorControlNormal"/>
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:rotation="90"
+                            android:contentDescription="Expand"
+                            app:tint="@color/primary_color"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════ STEP 5: BATCH ════ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardStep5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:alpha="0.45"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <FrameLayout
+                            android:id="@+id/frameStep5Circle"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_step_circle_inactive">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="5"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Select Batch"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Choose student batch"
+                                android:textSize="11sp"
+                                android:textColor="?attr/colorControlNormal"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iconStep5Done"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_step_done"
+                            android:visibility="gone"
+                            android:contentDescription="Done"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvStep5Hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↑  Select a semester first"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="12sp"/>
+
+                    <LinearLayout
+                        android:id="@+id/selectorBatch"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="12dp"
+                        android:background="@drawable/bg_selector_field"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvBatchSelected"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tap to select batch"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorControlNormal"/>
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_arrow_right"
+                            android:rotation="90"
+                            android:contentDescription="Expand"
+                            app:tint="@color/primary_color"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════ PROCEED ════ -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnProceed"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="24dp"
+                android:text="View Students"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                app:backgroundTint="@color/primary_color"
+                app:cornerRadius="14dp"
+                app:icon="@drawable/ic_arrow_right"
+                app:iconTint="#FFFFFF"
+                app:iconGravity="textEnd"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

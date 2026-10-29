@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="?attr/colorSurface"
+    android:paddingStart="16dp" android:paddingEnd="12dp"
+    android:layout_marginTop="1dp"
+    android:clickable="true" android:focusable="true">
+
+    <!-- Left teal accent bar -->
+    <View
+        android:layout_width="3dp" android:layout_height="32dp"
+        android:background="@drawable/bg_timetable_left_bar"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Info -->
+    <LinearLayout
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvCourseSem"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="BCA  ›  Sem-1"
+            android:textSize="14sp" android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"/>
+        <TextView
+            android:id="@+id/tvInstallments"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="2 installments"
+            android:textSize="11sp" android:textColor="?attr/colorControlNormal"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- Amount chip -->
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="₹25,000"
+        android:textSize="14sp" android:textStyle="bold"
+        android:textColor="@color/primary_color"
+        android:background="@drawable/bg_count_badge"
+        android:paddingStart="10dp" android:paddingEnd="10dp"
+        android:paddingTop="4dp" android:paddingBottom="4dp"/>
+</LinearLayout>

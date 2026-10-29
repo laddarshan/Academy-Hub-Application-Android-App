@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ══ HEADER ══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="20dp"
+        android:elevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@drawable/ic_back" android:padding="12dp"
+                android:contentDescription="Back"
+                android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF"/>
+
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical"
+                android:layout_marginStart="4dp">
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Fees Management"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Structure and student payments"
+                    android:textColor="#AAFFEE" android:textSize="11sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="32dp" android:layout_height="32dp"
+                android:src="@drawable/ic_fees"
+                android:contentDescription="Fees"
+                app:tint="#AAFFEE"/>
+        </LinearLayout>
+
+        <!-- Summary row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp">
+
+            <!-- Collected card -->
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#1AFFFFFF"
+                android:padding="12dp"
+                android:layout_marginEnd="6dp">
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="COLLECTED"
+                    android:textColor="#88FFFFFF" android:textSize="10sp" android:textStyle="bold"
+                    android:letterSpacing="0.06"/>
+                <TextView
+                    android:id="@+id/tvTotalCollected"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="..."
+                    android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <!-- Pending card -->
+            <LinearLayout
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#1AFFFFFF"
+                android:padding="12dp"
+                android:layout_marginStart="6dp">
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="PENDING"
+                    android:textColor="#88FFFFFF" android:textSize="10sp" android:textStyle="bold"
+                    android:letterSpacing="0.06"/>
+                <TextView
+                    android:id="@+id/tvTotalPending"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="..."
+                    android:textColor="#FFCDD2" android:textSize="20sp" android:textStyle="bold"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="14dp" android:paddingEnd="14dp"
+            android:paddingTop="20dp" android:paddingBottom="32dp">
+
+            <!-- Section label -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="QUICK ACTIONS"
+                android:textSize="11sp" android:textStyle="bold"
+                android:textColor="?attr/colorControlNormal"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Card: Fees Structure -->
+            <LinearLayout
+                android:id="@+id/cardFeesStructure"
+                android:layout_width="match_parent" android:layout_height="72dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="10dp"
+                android:elevation="1dp"
+                android:clickable="true" android:focusable="true">
+
+                <FrameLayout
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:background="@drawable/bg_stat_circle_teal">
+                    <ImageView
+                        android:layout_width="22dp" android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_fees"
+                        android:contentDescription="Fees Structure"
+                        app:tint="#FFFFFF"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Fees Structure"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Set and update fees per semester"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Go"
+                    app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Card: Student Fees -->
+            <LinearLayout
+                android:id="@+id/cardStudentFees"
+                android:layout_width="match_parent" android:layout_height="72dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="20dp"
+                android:elevation="1dp"
+                android:clickable="true" android:focusable="true">
+
+                <FrameLayout
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:background="@drawable/bg_stat_circle_blue">
+                    <ImageView
+                        android:layout_width="22dp" android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_students"
+                        android:contentDescription="Students"
+                        app:tint="#FFFFFF"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Student Fees"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"/>
+                    <TextView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="View and collect student payments"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Go"
+                    app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Overview section -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="FEES STRUCTURES"
+                android:textSize="11sp" android:textStyle="bold"
+                android:textColor="?attr/colorControlNormal"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Course filter chips -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupCourses"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Empty state -->
+            <LinearLayout
+                android:id="@+id/layoutEmpty"
+                android:layout_width="match_parent" android:layout_height="120dp"
+                android:orientation="vertical" android:gravity="center"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="48dp" android:layout_height="48dp"
+                    android:src="@drawable/ic_fees"
+                    android:contentDescription="Empty" android:alpha="0.25"
+                    app:tint="?attr/colorControlNormal"/>
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="No fees structure set yet"
+                    android:textSize="13sp" android:textColor="?attr/colorControlNormal"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <!-- Fees structures list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFeesStructures"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

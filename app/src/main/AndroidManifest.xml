@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AcademyHub"
+        tools:targetApi="31">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <!-- ========================================
+             CORE ACTIVITIES
+        ======================================== -->
+
+        <!--
+            ✅ KEY FIX: singleTask — app reopen થાય ત્યારે
+            Splash નો onCreate ALWAYS fresh run થાય.
+            જૂની UserDashboard/AdminDashboard stack destroy થઈ જાય.
+        -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:launchMode="singleTop"/>
+
+        <!--
+            ✅ finishOnTaskLaunch: app swipe-close થાય ત્યારે
+            આ activities automatically destroy થઈ જાય
+        -->
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:finishOnTaskLaunch="true"/>
+
+        <activity
+            android:name=".AdminControlPanelActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".UserDashboardActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:finishOnTaskLaunch="true"/>
+
+        <!-- ========================================
+             STUDENT MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity
+            android:name=".student.StudentListActivity"
+            android:exported="false"
+            android:label="Student Management"/>
+
+        <activity
+            android:name=".student.AddStudentActivity"
+            android:exported="false"
+            android:label="Add Student"/>
+
+        <activity
+            android:name=".student.StudentDetailsActivity"
+            android:exported="false"
+            android:label="Student Details"/>
+
+        <activity
+            android:name=".student.StudentPromotionActivity"
+            android:exported="false"
+            android:label="Student Promotion"/>
+
+        <activity
+            android:name=".student.StudentRoleActivity"
+            android:exported="false"/>
+
+        <activity android:name=".students.StudentStatsActivity" />
+        <activity android:name=".student.RegisterStudentActivity" />
+        <activity android:name=".student.RegisterRoleActivity" />
+
+        <!-- ========================================
+             TEACHER MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity
+            android:name=".teacher.TeacherListActivity"
+            android:exported="false"
+            android:label="Teacher Management"/>
+
+        <activity
+            android:name=".teacher.AddTeacherActivity"
+            android:exported="false"
+            android:label="Add Teacher"/>
+
+        <activity
+            android:name=".teacher.TeacherDetailsActivity"
+            android:exported="false"
+            android:label="Teacher Details"/>
+
+        <activity
+            android:name=".teacher.TeacherSalaryActivity"
+            android:exported="false"
+            android:label="Salary Management"/>
+
+        <activity
+            android:name=".teacher.TeacherAttendanceActivity"
+            android:exported="false"
+            android:label="Attendance Records"/>
+
+        <activity
+            android:name=".teacher.MarkAttendanceActivity"
+            android:exported="false"
+            android:label="Mark Attendance"/>
+
+        <activity
+            android:name=".teacher.LeaveManagementActivity"
+            android:exported="false"
+            android:label="Leave Management"/>
+
+        <activity
+            android:name=".teacher.ApplyLeaveActivity"
+            android:exported="false"
+            android:label="Apply Leave"/>
+
+        <activity
+            android:name=".teacher.DocumentsActivity"
+            android:exported="false"
+            android:label="Documents"/>
+
+        <!-- ========================================
+             COURSE MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity
+            android:name=".course.ManageCoursesActivity"
+            android:exported="false"
+            android:label="Manage Courses"/>
+
+        <activity
+            android:name=".course.AddCourseActivity"
+            android:exported="false"
+            android:label="Add Course"/>
+
+        <!-- ========================================
+             SESSION MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity
+            android:name=".session.ManageSessionsActivity"
+            android:exported="false"
+            android:label="Manage Sessions"/>
+
+        <activity
+            android:name=".session.AddSessionActivity"
+            android:exported="false"
+            android:label="Add Session"/>
+
+        <!-- ========================================
+             BATCH MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity
+            android:name=".batch.ManageBatchesActivity"
+            android:exported="false"
+            android:label="Manage Batches"/>
+
+        <activity
+            android:name=".batch.AddBatchActivity"
+            android:exported="false"
+            android:label="Add Batch"/>
+
+        <!-- ========================================
+             SUBJECT MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".subject.SubjectRoleActivity" android:exported="false"/>
+        <activity android:name=".subject.SubjectListActivity" android:exported="false"/>
+        <activity android:name=".subject.AddSubjectActivity" android:exported="false"/>
+
+        <!-- ========================================
+             TIMETABLE MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".timetable.TimetableListActivity" android:exported="false"/>
+        <activity android:name=".timetable.TimetableRoleActivity" />
+        <activity android:name=".timetable.AddTimetableActivity" />
+
+        <!-- ========================================
+             ATTENDANCE MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".attendance.AttendanceRoleActivity" />
+        <activity android:name=".attendance.AttendanceStudentListActivity" />
+        <activity android:name=".attendance.AttendanceEntryActivity" />
+
+        <!-- ========================================
+             EXAM MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".exam.ExamRoleActivity" android:exported="false"/>
+        <activity android:name=".exam.ExamTimetableActivity" android:exported="false"/>
+
+        <!-- ========================================
+             FEES MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".fees.FeesRoleActivity" android:exported="false"/>
+        <activity android:name=".fees.FeesStructureActivity" android:exported="false"/>
+        <activity android:name=".fees.FeesDashboardActivity" android:exported="false"/>
+        <activity android:name=".fees.StudentFeesListActivity" android:exported="false"/>
+        <activity android:name=".fees.StudentFeesDetailsActivity" android:exported="false"/>
+        <activity android:name=".fees.PaymentActivity" android:exported="false"/>
+        <activity android:name=".fees.FeesStatsActivity" />
+
+        <!-- ========================================
+             RESULT MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".result.ResultRoleActivity" />
+        <activity android:name=".result.ResultManagementActivity" />
+
+        <!-- ========================================
+             ANNOUNCEMENT MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".announcements.AnnouncementRoleActivity" />
+        <activity android:name=".announcements.CreateAnnouncementActivity" />
+        <activity android:name=".announcements.AnnouncementHistoryActivity" />
+        <activity android:name=".announcements.NotificationsActivity" />
+        <activity android:name=".announcements.AnnouncementPdfActivity" />
+
+        <!-- ========================================
+             REPORT MANAGEMENT ACTIVITIES
+        ======================================== -->
+
+        <activity android:name=".reports.ReportsActivity"/>
+        <activity android:name=".reports.FeesReportActivity"/>
+        <activity android:name=".reports.AttendanceReportActivity"/>
+        <activity android:name=".reports.StudentReportActivity"/>
+
+        <activity
+            android:name=".student.StudentProfileActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name=".student.AttendanceActivity"/>
+        <activity android:name=".student.StudentExamTimetableActivity"/>
+        <activity android:name=".student.StudentResultActivity"/>
+        <activity android:name=".student.StudentFeesActivity"/>
+        <activity android:name=".student.StudentPayFeesActivity"/>
+        <activity android:name=".student.StudentTimetableActivity"/>
+        <activity android:name=".announcements.StudentNoticesActivity"/>
+        <activity android:name=".student.StudentSubjectsActivity"/>
+
+
+        <!-- ========================================
+             FCM SERVICE
+        ======================================== -->
+
+        <service
+            android:name=".utils.AcademyFcmService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

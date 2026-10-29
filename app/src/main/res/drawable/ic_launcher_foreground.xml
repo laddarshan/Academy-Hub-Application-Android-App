@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="180"
+    android:viewportHeight="180">
+
+    <!-- Cap top diamond -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M88,59 L124,79 L88,99 L52,79 Z" />
+
+    <!-- Cap body bowl -->
+    <path
+        android:fillColor="#1ABC9C"
+        android:pathData="M64,87 L64,109
+            C64,109 72,121 88,121
+            C104,121 112,109 112,109
+            L112,87 L88,99 Z" />
+
+    <!-- Tassel string -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M124,79 L124,103" />
+
+    <!-- Tassel ball -->
+    <path
+        android:fillColor="#1ABC9C"
+        android:pathData="M124,109 m-7,0 a7,7 0 1,0 14,0 a7,7 0 1,0 -14,0" />
+
+</vector>

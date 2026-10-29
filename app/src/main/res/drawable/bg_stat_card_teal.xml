@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Card background -->
+    <item>
+        <shape>
+            <solid android:color="?attr/colorSurface"/>
+            <corners android:radius="18dp"/>
+        </shape>
+    </item>
+    <!-- Top teal strip — 3dp -->
+    <item android:bottom="0dp" android:left="0dp" android:right="0dp"
+        android:top="0dp">
+        <shape>
+            <solid android:color="@android:color/transparent"/>
+            <corners android:radius="18dp"/>
+            <stroke android:width="1dp" android:color="?attr/colorBorder"/>
+        </shape>
+    </item>
+    <!-- Top color bar -->
+    <item android:bottom="376dp" android:left="0dp" android:right="0dp" android:top="0dp">
+        <shape>
+            <gradient android:startColor="#075E54" android:endColor="#25D366"
+                android:angle="0"/>
+            <corners android:topLeftRadius="18dp" android:topRightRadius="18dp"/>
+        </shape>
+    </item>
+</layer-list>

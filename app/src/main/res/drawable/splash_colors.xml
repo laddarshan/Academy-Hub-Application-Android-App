@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Splash screen colors.
+    Add these inside your existing res/values/colors.xml file.
+    For dark mode, add the night versions in res/values-night/colors.xml
+-->
+
+<!-- ── res/values/colors.xml ma add karo (LIGHT / DEFAULT) ── -->
+<resources>
+
+    <!-- Splash Screen (always dark — professional look) -->
+    <color name="splash_bg">#2C3E50</color>
+    <color name="splash_text_primary">#FFFFFF</color>
+    <color name="splash_text_secondary">#B2BEC3</color>
+    <color name="splash_accent">#1ABC9C</color>
+
+</resources>
+
+<!--
+    NOTE: Splash screen intentionally keeps dark background in both
+    light and dark mode for a premium branded experience.
+    Only the Login screen and rest of app follow system dark/light theme.
+
+    If you want splash to also follow system theme, add this in
+    res/values-night/colors.xml:
+
+    <color name="splash_bg">#0F1923</color>
+    <color name="splash_text_primary">#E8EDF0</color>
+    <color name="splash_text_secondary">#8FA6B5</color>
+    <color name="splash_accent">#1ABC9C</color>
+-->

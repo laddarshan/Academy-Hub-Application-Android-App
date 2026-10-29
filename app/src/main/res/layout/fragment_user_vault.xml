@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/fragment_user_vault.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- TEAL HEADER -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_color"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="24dp">
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="-20dp"
+            android:background="@drawable/bg_header_orb"
+            android:alpha="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vault"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your secure learning store"
+                android:textColor="#AAFFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- CENTERED COMING SOON CONTENT -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
+
+        <!-- Lock icon -->
+        <FrameLayout
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/bg_vault_icon_circle"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_folder"
+                android:contentDescription="Vault"
+                android:tint="#1ABC9C" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vault"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnBackground"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coming Soon"
+            android:textSize="13sp"
+            android:textColor="#1ABC9C"
+            android:textStyle="bold"
+            android:background="@drawable/bg_tag_teal_outline"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- What Vault will have -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What's coming in Vault"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnBackground"
+                    android:layout_marginBottom="14dp" />
+
+                <!-- Item 1 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/bg_dot_teal" android:layout_marginEnd="10dp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="PDF Notes — Subject-wise e-books and handwritten notes"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:lineSpacingMultiplier="1.3" />
+                </LinearLayout>
+
+                <!-- Item 2 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/bg_dot_teal" android:layout_marginEnd="10dp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Video Lectures — Chapter-wise recorded videos"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:lineSpacingMultiplier="1.3" />
+                </LinearLayout>
+
+                <!-- Item 3 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/bg_dot_teal" android:layout_marginEnd="10dp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Old Papers — Last 3–4 years question papers for practice"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:lineSpacingMultiplier="1.3" />
+                </LinearLayout>
+
+                <!-- Item 4 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/bg_dot_teal" android:layout_marginEnd="10dp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Downloads — Offline saved materials"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:lineSpacingMultiplier="1.3" />
+                </LinearLayout>
+
+                <!-- Item 5 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="6dp" android:layout_height="6dp"
+                        android:background="@drawable/bg_dot_teal" android:layout_marginEnd="10dp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Category Filter — Search by semester or subject"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:lineSpacingMultiplier="1.3" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

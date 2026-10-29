@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ══ MAIN CONTENT ══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ══ HEADER ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#075E54"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="12dp"
+            android:elevation="6dp">
+
+            <!-- Back + Title + Count + Sort + MultiSelect -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_back"
+                    android:padding="6dp"
+                    android:contentDescription="Back"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#FFFFFF"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Students"
+                        android:textColor="#FFFFFF"
+                        android:textSize="17sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvGroupBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#AAFFEE"
+                        android:textSize="11sp"
+                        android:layout_marginTop="1dp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <!-- Count badge -->
+                <TextView
+                    android:id="@+id/tvStudentCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#075E54"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_count_badge"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+                <!-- Sort icon -->
+                <ImageView
+                    android:id="@+id/btnSort"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_sort"
+                    android:padding="7dp"
+                    android:contentDescription="Sort"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginStart="6dp"
+                    app:tint="#FFFFFF"/>
+
+                <!-- Multi-select (checkbox) icon -->
+                <ImageView
+                    android:id="@+id/btnMultiSelect"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_check_box"
+                    android:padding="7dp"
+                    android:contentDescription="Multi Select"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginStart="2dp"
+                    app:tint="#FFFFFF"/>
+
+            </LinearLayout>
+
+            <!-- Search bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_search_bar_white"
+                android:paddingStart="12dp"
+                android:paddingEnd="8dp">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="Search"
+                    app:tint="#AAFFEE"/>
+
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Search by name or roll..."
+                    android:textColorHint="#88FFFFFF"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:imeOptions="actionSearch"
+                    android:layout_marginStart="8dp"/>
+
+                <ImageView
+                    android:id="@+id/btnClearSearch"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_close"
+                    android:contentDescription="Clear"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#AAFFEE"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ══ MULTI-SELECT TOOLBAR (hidden by default) ══ -->
+        <!-- Aa toolbar multi-select mode ma show thay chhe -->
+        <LinearLayout
+            android:id="@+id/multiSelectToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#075E54"
+            android:visibility="gone"
+            android:paddingStart="12dp"
+            android:paddingEnd="8dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:id="@+id/tvSelectedCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Select students"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <!-- Select All button -->
+            <TextView
+                android:id="@+id/btnSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select All"
+                android:textColor="#A5D6A7"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <!-- Delete Selected button -->
+            <LinearLayout
+                android:id="@+id/btnDeleteSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_tag_red_outline"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginStart="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:alpha="0.4">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_delete"
+                    android:contentDescription="Delete"
+                    app:tint="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Thin progress bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#075E54"
+            android:visibility="gone"/>
+
+        <!-- Table column header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="?attr/colorSurface">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="STUDENT"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginStart="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ROLL / ⋮"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06"
+                android:textColor="?attr/colorControlNormal"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorControlHighlight"/>
+
+        <!-- SwipeRefreshLayout + list -->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Empty state -->
+                <LinearLayout
+                    android:id="@+id/layoutEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_students"
+                        android:contentDescription="No students"
+                        app:tint="#CCCCCC"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No students found"
+                        android:textSize="15sp"
+                        android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap + to add a new student"
+                        android:textSize="12sp"
+                        android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- Student RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStudents"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    android:clipToPadding="false"
+                    android:paddingBottom="88dp"/>
+
+            </FrameLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+    <!-- ══ FAB MENU OVERLAY ══ -->
+
+    <View
+        android:id="@+id/fabScrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88000000"
+        android:alpha="0"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <!-- Mini FAB: Upload CSV -->
+    <LinearLayout
+        android:id="@+id/fabMenuUploadCsv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:alpha="0"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload CSV"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="#075E54"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabUploadCsv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_upload"
+            app:backgroundTint="#075E54"
+            app:fabSize="mini"
+            android:contentDescription="Upload CSV"
+            app:tint="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- Mini FAB: Add Student -->
+    <LinearLayout
+        android:id="@+id/fabMenuAddStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="160dp"
+        android:alpha="0"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Student"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="#075E54"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_student"
+            app:backgroundTint="#075E54"
+            app:fabSize="mini"
+            android:contentDescription="Add Student"
+            app:tint="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- Main FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="#075E54"
+        android:contentDescription="Menu"
+        app:tint="#FFFFFF"
+        app:elevation="6dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

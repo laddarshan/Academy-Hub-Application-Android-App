@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1091749076636",
+    "firebase_url": "https://project-f028ee6a-7978-4453-ab1-default-rtdb.firebaseio.com",
+    "project_id": "project-f028ee6a-7978-4453-ab1",
+    "storage_bucket": "project-f028ee6a-7978-4453-ab1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091749076636:android:7462c1e3c173ffd4729759",
+        "android_client_info": {
+          "package_name": "com.example.academyhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091749076636-5m6v6vn0lgs8e6k9jcqgvncr0kn9rblg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmkhxhpuXnOXqfvoUJuTmpIVRBsCa_RPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091749076636-5m6v6vn0lgs8e6k9jcqgvncr0kn9rblg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

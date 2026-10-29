@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Phone input field border — works in light + dark -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <stroke
+        android:width="1.5dp"
+        android:color="?attr/colorControlNormal" />
+    <corners android:radius="12dp" />
+    <solid android:color="@android:color/transparent" />
+</shape>

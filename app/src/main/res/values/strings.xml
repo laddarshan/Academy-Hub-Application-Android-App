@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Academy Hub</string>
+    <string name="facebook_app_id">901144459130771</string>
+    <string name="fb_login_protocol_scheme">fb901144459130771</string>
+    <string name="facebook_client_token">578e111d35984ac88c43daacfdc1e056</string>
+    <string name="edit_course">Edit Course</string>
+    <string name="update_course">Update Course</string>
+</resources>

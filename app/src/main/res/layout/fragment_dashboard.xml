@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:overScrollMode="never">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <!-- Welcome Banner -->
+        <androidx.cardview.widget.CardView android:id="@+id/cardWelcome"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:alpha="0"
+            app:cardCornerRadius="16dp" app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/primary_color">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:padding="18dp" android:gravity="center_vertical">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:id="@+id/tvWelcomeGreet"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Good Morning," android:textSize="13sp"
+                        android:textColor="#99FFFFFF"/>
+                    <TextView android:id="@+id/tvWelcomeName"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Admin" android:textSize="20sp" android:textStyle="bold"
+                        android:textColor="@android:color/white" android:layout_marginTop="2dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Here's today's overview"
+                        android:textSize="12sp" android:textColor="#80FFFFFF"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <ImageView android:layout_width="52dp" android:layout_height="52dp"
+                    android:src="@drawable/ic_school1"
+                    android:contentDescription="Logo" android:alpha="0.5"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Overview Title -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Overview" android:textSize="16sp" android:textStyle="bold"
+            android:textColor="?attr/colorOnBackground" android:layout_marginBottom="10dp"/>
+
+        <!-- Stats Row 1: Students + Courses -->
+        <LinearLayout android:id="@+id/statsRow1"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:weightSum="2" android:alpha="0">
+
+            <!-- Students Card — clickable -->
+            <androidx.cardview.widget.CardView android:id="@+id/cardStudents"
+                android:layout_width="0dp" android:layout_height="130dp"
+                android:layout_weight="1" android:layout_margin="5dp"
+                android:clickable="true" android:focusable="true"
+                app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <FrameLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_stat_circle_blue">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Students"
+                            android:src="@drawable/ic_students" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tvTotalStudents"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="0"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Students"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Courses Card — clickable -->
+            <androidx.cardview.widget.CardView android:id="@+id/cardCourses"
+                android:layout_width="0dp" android:layout_height="130dp"
+                android:layout_weight="1" android:layout_margin="5dp"
+                android:clickable="true" android:focusable="true"
+                app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <FrameLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_stat_circle_orange">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Courses"
+                            android:src="@drawable/ic_courses" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tvTotalCourses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="0"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Courses"
+                        android:textColor="?attr/colorControlNormal"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Stats Row 2: Fees (full width) -->
+        <LinearLayout android:id="@+id/statsRow2"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:alpha="0" >
+
+            <!-- Pending Fees Card — clickable, full width -->
+            <androidx.cardview.widget.CardView android:id="@+id/cardFees"
+                android:layout_width="match_parent" android:layout_height="110dp"
+                android:layout_margin="5dp"
+                android:clickable="true" android:focusable="true"
+                app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:padding="16dp">
+                    <FrameLayout android:layout_width="46dp" android:layout_height="46dp"
+                        android:background="@drawable/bg_stat_circle_red"
+                        android:layout_marginEnd="16dp">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_fees"
+                            android:contentDescription="Fees"/>
+                    </FrameLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:id="@+id/tvPendingFees"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="₹0" android:textSize="22sp" android:textStyle="bold"
+                            android:textColor="#E74C3C"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Total Pending Fees"
+                            android:textSize="12sp" android:textColor="?attr/colorControlNormal"/>
+                    </LinearLayout>
+                    <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                        android:src="@drawable/ic_arrow_right"
+                        android:contentDescription="Open" app:tint="?attr/colorControlNormal"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Recent Activity -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Recent Activity" android:textSize="16sp" android:textStyle="bold"
+            android:textColor="?attr/colorOnBackground"
+            android:layout_marginTop="20dp" android:layout_marginBottom="10dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvRecentActivity"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+        <LinearLayout android:id="@+id/layoutNoActivity"
+            android:layout_width="match_parent" android:layout_height="100dp"
+            android:orientation="vertical" android:gravity="center" android:visibility="gone">
+            <ImageView android:layout_width="36dp" android:layout_height="36dp"
+                android:src="@drawable/ic_no_data" android:contentDescription="No data"
+                android:alpha="0.3"/>
+            <TextView android:id="@+id/tvNoActivity"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="No recent activity"
+                android:textSize="13sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

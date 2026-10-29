@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ── Center Content Group ── -->
+    <LinearLayout
+        android:id="@+id/layoutCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Logo rounded square -->
+        <FrameLayout
+            android:id="@+id/frameLogo"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_logo_rounded"
+            android:scaleX="0.7"
+            android:scaleY="0.7">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_school1"
+                android:contentDescription="Academy Hub Logo" />
+        </FrameLayout>
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Academy Hub"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/splash_text_secondary"
+            android:layout_marginTop="16dp"
+            android:letterSpacing="0.02" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tvTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complete Academy Management System"
+            android:textSize="12sp"
+            android:textColor="@color/splash_text_secondary"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:letterSpacing="0.01" />
+
+        <!-- Animated loading dots -->
+        <LinearLayout
+            android:id="@+id/layoutDots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="40dp">
+
+            <View
+                android:id="@+id/dot1"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_dot"
+                android:alpha="0.3" />
+
+            <View
+                android:id="@+id/dot2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_dot"
+                android:alpha="0.3" />
+
+            <View
+                android:id="@+id/dot3"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/bg_dot"
+                android:alpha="0.3" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ── Bottom Developer Credit ── -->
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:alpha="0"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FROM"
+            android:textSize="10sp"
+            android:textColor="@color/splash_text_secondary"
+            android:letterSpacing="0.15"
+            android:alpha="0.6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D8sn-Fenu"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/splash_accent"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

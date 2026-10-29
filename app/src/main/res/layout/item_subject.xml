@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="?attr/colorSurface"
+    android:paddingStart="16dp" android:paddingEnd="8dp"
+    android:paddingTop="14dp" android:paddingBottom="14dp"
+    android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
+    android:layout_marginTop="1dp">
+
+    <!-- Left accent color bar -->
+    <View
+        android:layout_width="3dp" android:layout_height="36dp"
+        android:background="@color/primary_color"
+        android:layout_marginEnd="14dp"/>
+
+    <!-- Avatar circle with initials -->
+    <FrameLayout
+        android:layout_width="40dp" android:layout_height="40dp"
+        android:background="@drawable/bg_status_active">
+        <TextView
+            android:id="@+id/tvInitials"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="S"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" android:textStyle="bold"/>
+    </FrameLayout>
+
+    <!-- Subject info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+        <TextView
+            android:id="@+id/tvSubjectName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subject Name"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="3dp">
+            <TextView
+                android:id="@+id/tvSubjectCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CODE"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color"
+                android:background="@drawable/bg_type_chip"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Edit button -->
+    <ImageView
+        android:id="@+id/btnEdit"
+        android:layout_width="38dp" android:layout_height="38dp"
+        android:src="@drawable/ic_edit"
+        android:padding="9dp"
+        android:contentDescription="Edit"
+        android:clickable="true" android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@color/primary_color"/>
+
+    <!-- Delete button -->
+    <ImageView
+        android:id="@+id/btnDelete"
+        android:layout_width="38dp" android:layout_height="38dp"
+        android:src="@drawable/ic_delete"
+        android:padding="9dp"
+        android:contentDescription="Delete"
+        android:clickable="true" android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#C62828"/>
+
+</LinearLayout>

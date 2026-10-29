@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp" android:height="200dp"
+    android:viewportWidth="200" android:viewportHeight="200">
+    <!-- QR placeholder - admin will replace with actual QR image -->
+    <path android:fillColor="#F5F5F5"
+        android:pathData="M0,0h200v200H0z"/>
+    <path android:fillColor="#075E54"
+        android:pathData="M10,10h60v60H10V10zM20,20v40h40V20H20zM30,30h20v20H30V30z"/>
+    <path android:fillColor="#075E54"
+        android:pathData="M130,10h60v60h-60V10zM140,20v40h40V20h-40zM150,30h20v20h-20V30z"/>
+    <path android:fillColor="#075E54"
+        android:pathData="M10,130h60v60H10v-60zM20,140v40h40v-40H20zM30,150h20v20H30v-20z"/>
+    <path android:fillColor="#075E54"
+        android:pathData="M80,10h10v10H80zM100,10h10v10h-10zM80,30h10v10H80zM100,30h10v10h-10zM80,50h30v10H80zM10,80h10v10H10zM30,80h10v10H30zM50,80h20v10H50zM80,80h10v10H80zM100,80h10v10h-10zM120,80h10v10h-10zM130,80h10v10h-10zM150,80h10v10h-10zM170,80h20v10h-20zM10,100h20v10H10zM40,100h10v10H40zM60,100h20v10H60zM90,100h10v10H90zM110,100h20v10h-20zM140,100h10v10h-10zM160,100h10v10h-10zM180,100h10v10h-10zM80,110h10v10H80zM100,110h10v10h-10zM120,110h10v10h-10zM140,110h10v10h-10zM130,120h10v10h-10zM150,120h10v10h-10zM170,120h20v10h-20zM80,130h10v10H80zM100,130h10v10h-10zM120,130h10v10h-10zM140,140h10v10h-10zM160,140h10v10h-10zM180,140h10v10h-10zM80,150h10v10H80zM100,150h20v10h-20zM130,150h10v10h-10zM150,150h10v10h-10zM170,150h10v10h-10zM80,170h10v10H80zM100,170h10v10h-10zM120,170h10v10h-10zM140,170h20v10h-20zM170,170h10v10h-10zM190,170h10v10h-10z"/>
+    <!-- Center text hint -->
+    <path android:fillColor="#BDBDBD"
+        android:pathData="M75,88h50v24H75V88z"/>
+</vector>

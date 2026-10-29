@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ══════════════════════════════════════
+         TOP HEADER  (same as Admin dashboard)
+    ══════════════════════════════════════ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="@color/primary_color"
+        android:elevation="6dp">
+
+        <!-- Logo + App name -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <FrameLayout
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_header_icon">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_school1"
+                    android:contentDescription="Logo" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Academy Hub"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+
+        <!-- Right: Name + Avatar -->
+        <LinearLayout
+            android:id="@+id/layoutStudentProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:id="@+id/tvHeaderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="120dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="STUDENT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:alpha="0.7" />
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivStudentAvatar"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_admin_profile"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#1ABC9C" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ══════════════════════════════════════
+         FRAGMENT CONTAINER
+    ══════════════════════════════════════ -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- ══════════════════════════════════════
+         BOTTOM NAVIGATION  — 4 items
+    ══════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:orientation="horizontal"
+        android:background="?attr/colorSurface"
+        android:elevation="14dp"
+        android:weightSum="4">
+
+        <!-- 1. Home -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+            <ImageView
+                android:id="@+id/navIcHome"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="Home" />
+            <TextView
+                android:id="@+id/navTvHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="10sp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/primary_color" />
+        </LinearLayout>
+
+        <!-- 2. Achieve -->
+        <LinearLayout
+            android:id="@+id/navAchieve"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+            <ImageView
+                android:id="@+id/navIcAchieve"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_star"
+                android:contentDescription="Achieve" />
+            <TextView
+                android:id="@+id/navTvAchieve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Achieve"
+                android:textSize="10sp"
+                android:layout_marginTop="3dp"
+                android:textColor="#8AABA7" />
+        </LinearLayout>
+
+        <!-- 3. Vault -->
+        <LinearLayout
+            android:id="@+id/navVault"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+            <ImageView
+                android:id="@+id/navIcVault"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_folder"
+                android:contentDescription="Vault" />
+            <TextView
+                android:id="@+id/navTvVault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vault"
+                android:textSize="10sp"
+                android:layout_marginTop="3dp"
+                android:textColor="#8AABA7" />
+        </LinearLayout>
+
+        <!-- 4. Profile -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+            <ImageView
+                android:id="@+id/navIcProfile"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_person"
+                android:contentDescription="Profile" />
+            <TextView
+                android:id="@+id/navTvProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textSize="10sp"
+                android:layout_marginTop="3dp"
+                android:textColor="#8AABA7" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

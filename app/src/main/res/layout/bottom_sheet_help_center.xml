@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_drag_handle" />
+
+    <!-- ── Teal Header ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#075E54"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_help"
+            android:contentDescription="Help"
+            android:tint="@android:color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Help Center"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support"
+            android:textSize="13sp"
+            android:textColor="@android:color/white"
+            android:alpha="0.85" />
+
+    </LinearLayout>
+
+    <!-- Search bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_search_field"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_search"
+            android:contentDescription="Search"
+            app:tint="@color/primary_color"/>
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="Search..."
+            android:textSize="13sp"
+            android:textColor="?attr/colorOnSurface"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionSearch"
+            android:layout_marginStart="8dp"/>
+
+        <ImageView
+            android:id="@+id/btnClearSearch"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Clear"
+            android:visibility="gone"
+            app:tint="?attr/colorControlNormal"/>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorControlNormal"
+        android:alpha="0.1"
+        android:layout_marginTop="10dp" />
+
+    <!-- ── Help topic items ── -->
+
+    <!-- Item 1 -->
+    <LinearLayout
+        android:id="@+id/itemOtpNotReceived"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <FrameLayout
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_help_icon_circle">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_phone"
+                android:contentDescription="OTP"
+                android:tint="#075E54" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OTP Not Received"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check your mobile number and signal"
+                android:textSize="11sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_arrow_right"
+            android:contentDescription="Open"
+            android:alpha="0.4" />
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+        android:background="?attr/colorControlNormal" android:alpha="0.1"
+        android:layout_marginStart="64dp" />
+
+    <!-- Item 2 -->
+    <LinearLayout
+        android:id="@+id/itemLoginProblem"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <FrameLayout
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_help_icon_circle">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_shield"
+                android:contentDescription="Login"
+                android:tint="#075E54" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login Problem"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact your institute administrator"
+                android:textSize="11sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_arrow_right"
+            android:contentDescription="Open"
+            android:alpha="0.4" />
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+        android:background="?attr/colorControlNormal" android:alpha="0.1"
+        android:layout_marginStart="64dp" />
+
+    <!-- Item 3 -->
+    <LinearLayout
+        android:id="@+id/itemNewRegistration"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <FrameLayout
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_help_icon_circle">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person_add"
+                android:contentDescription="Register"
+                android:tint="#075E54" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Registration"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap Register on the login screen"
+                android:textSize="11sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_arrow_right"
+            android:contentDescription="Open"
+            android:alpha="0.4" />
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+        android:background="?attr/colorControlNormal" android:alpha="0.1"
+        android:layout_marginStart="64dp" />
+
+    <!-- Item 4 -->
+    <LinearLayout
+        android:id="@+id/itemContactAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <FrameLayout
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_help_icon_circle">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_help"
+                android:contentDescription="Contact"
+                android:tint="#075E54" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Admin"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="support@academyhub.com"
+                android:textSize="11sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_arrow_right"
+            android:contentDescription="Open"
+            android:alpha="0.4" />
+
+    </LinearLayout>
+
+    <!-- Bottom padding for navigation bar -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+</LinearLayout>

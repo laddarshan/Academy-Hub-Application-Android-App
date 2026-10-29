@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- TEAL HEADER -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="10dp" android:elevation="4dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <ImageView android:id="@+id/btnBack"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@drawable/ic_back" android:padding="12dp"
+                android:contentDescription="Back"
+                android:clickable="true" android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF"/>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical"
+                android:layout_marginStart="4dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Reports"
+                    android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Generate &amp; export academic reports"
+                    android:textColor="#AAFFEE" android:textSize="11sp" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                android:src="@drawable/ic_reports"
+                android:contentDescription="Reports" app:tint="#AAFFEE"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:overScrollMode="never" android:fillViewport="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp" android:paddingEnd="16dp"
+            android:paddingTop="20dp" android:paddingBottom="32dp">
+
+            <!-- Section label -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <View android:layout_width="3dp" android:layout_height="16dp"
+                    android:background="@drawable/bg_timetable_left_bar" android:layout_marginEnd="8dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="SELECT REPORT TYPE"
+                    android:textSize="11sp" android:textStyle="bold"
+                    android:textColor="@color/primary_color" android:letterSpacing="0.08"/>
+            </LinearLayout>
+
+            <!-- Fees Report Card -->
+            <LinearLayout android:id="@+id/cardFeesReport"
+                android:layout_width="match_parent" android:layout_height="84dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="12dp"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:clickable="true" android:focusable="true">
+
+                <View android:id="@+id/indicatorFees"
+                    android:layout_width="3dp" android:layout_height="52dp"
+                    android:background="@color/primary_color"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="14dp"/>
+
+                <FrameLayout android:layout_width="48dp" android:layout_height="48dp"
+                    android:background="@drawable/bg_stat_circle_teal"
+                    android:layout_marginEnd="16dp">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_fees"
+                        android:contentDescription="Fees" app:tint="#FFFFFF"/>
+                </FrameLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Fees Report"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Collection, pending, student-wise fees status"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Open" app:tint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Attendance Report Card -->
+            <LinearLayout android:id="@+id/cardAttendanceReport"
+                android:layout_width="match_parent" android:layout_height="84dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="12dp"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:clickable="true" android:focusable="true">
+
+                <View android:id="@+id/indicatorAttendance"
+                    android:layout_width="3dp" android:layout_height="52dp"
+                    android:background="@color/primary_color"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="14dp"/>
+
+                <FrameLayout android:layout_width="48dp" android:layout_height="48dp"
+                    android:background="@drawable/bg_stat_circle_blue"
+                    android:layout_marginEnd="16dp">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_attendance"
+                        android:contentDescription="Attendance" app:tint="#FFFFFF"/>
+                </FrameLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Attendance Report"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Student-wise, subject-wise attendance analysis"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Open" app:tint="#1565C0"/>
+            </LinearLayout>
+
+            <!-- Student Report Card -->
+            <LinearLayout android:id="@+id/cardStudentReport"
+                android:layout_width="match_parent" android:layout_height="84dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="12dp"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:clickable="true" android:focusable="true">
+
+                <View android:id="@+id/indicatorStudent"
+                    android:layout_width="3dp" android:layout_height="52dp"
+                    android:background="@color/primary_color"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="14dp"/>
+
+                <FrameLayout android:layout_width="48dp" android:layout_height="48dp"
+                    android:background="@drawable/bg_stat_circle_orange"
+                    android:layout_marginEnd="16dp">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_students"
+                        android:contentDescription="Students" app:tint="#FFFFFF"/>
+                </FrameLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Student Report"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Demographics, admission, gender-wise summary"
+                        android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <ImageView android:layout_width="20dp" android:layout_height="20dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Open" app:tint="#E65100"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

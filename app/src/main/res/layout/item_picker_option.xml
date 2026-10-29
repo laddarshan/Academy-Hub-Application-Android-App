@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="18dp"
+    android:paddingEnd="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground">
+
+    <!-- Left color bar (hidden by default, shown when selected) -->
+    <View
+        android:id="@+id/viewSelectedBar"
+        android:layout_width="3dp"
+        android:layout_height="28dp"
+        android:background="@color/primary_color"
+        android:visibility="invisible"
+        android:layout_marginEnd="14dp"/>
+
+    <!-- Icon circle -->
+    <FrameLayout
+        android:id="@+id/iconCircle"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/bg_picker_icon_circle">
+        <TextView
+            android:id="@+id/tvIconLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="A"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+    </FrameLayout>
+
+    <!-- Text -->
+    <TextView
+        android:id="@+id/tvOptionName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Option Name"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_marginStart="12dp"/>
+
+    <!-- Check icon (shown when selected) -->
+    <ImageView
+        android:id="@+id/iconCheck"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_step_done"
+        android:visibility="gone"
+        android:contentDescription="Selected"/>
+
+</LinearLayout>

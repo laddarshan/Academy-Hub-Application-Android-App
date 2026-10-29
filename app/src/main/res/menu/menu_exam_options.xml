@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_view"
+        android:title="View Details" />
+
+    <item
+        android:id="@+id/action_edit"
+        android:title="Edit Exam" />
+
+    <item
+        android:id="@+id/action_add_questions"
+        android:title="Add Questions" />
+
+    <item
+        android:id="@+id/action_publish_result"
+        android:title="Publish Result" />
+
+    <item
+        android:id="@+id/action_cancel"
+        android:title="Cancel Exam" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:title="Delete" />
+</menu>

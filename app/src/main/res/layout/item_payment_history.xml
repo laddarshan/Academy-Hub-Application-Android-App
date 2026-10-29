@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="?attr/colorSurface"
+    android:paddingStart="16dp" android:paddingEnd="16dp"
+    android:paddingTop="12dp" android:paddingBottom="12dp"
+    android:layout_marginTop="1dp">
+
+    <FrameLayout
+        android:layout_width="32dp" android:layout_height="32dp"
+        android:background="@drawable/bg_stat_circle_teal">
+        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+            android:layout_gravity="center" android:src="@drawable/ic_fees"
+            android:contentDescription="Payment" app:tint="#FFFFFF"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:orientation="vertical"
+        android:layout_marginStart="12dp">
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/tvPayMode"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Cash"
+                android:textSize="13sp" android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"/>
+            <TextView
+                android:id="@+id/tvPayReceipt"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="11sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvPayDate"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="01/01/2025"
+            android:textSize="11sp" android:textColor="?attr/colorControlNormal"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPayAmount"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="₹5,000"
+        android:textSize="15sp" android:textStyle="bold"
+        android:textColor="#075E54"/>
+</LinearLayout>

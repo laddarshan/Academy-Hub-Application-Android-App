@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Color accent top bar -->
+        <View android:id="@+id/subjectAccentBar"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <!-- Icon box -->
+            <FrameLayout android:id="@+id/subjectIconBox"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_menu_icon_green"
+                android:layout_marginEnd="14dp">
+                <TextView android:id="@+id/tvSubjectInitial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="A"
+                    android:textColor="#059669"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-black"/>
+            </FrameLayout>
+
+            <!-- Subject info -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+
+                <TextView android:id="@+id/tvSubjectName"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Subject Name"
+                    android:textColor="?attr/colorText1" android:textSize="14sp"
+                    android:fontFamily="sans-serif-black"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+
+                <TextView android:id="@+id/tvSubjectCode"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="?attr/colorTextMuted" android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium" android:layout_marginTop="2dp"/>
+
+                <!-- Progress bar -->
+                <ProgressBar android:id="@+id/progressSubject"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:progressDrawable="@drawable/bg_progress_teal"
+                    android:progress="0"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="4dp"/>
+
+                <!-- Present / Absent / Total row -->
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView android:id="@+id/tvPresent"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="P: 0"
+                        android:textColor="#128C7E" android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:background="@drawable/bg_pill_green"
+                        android:paddingStart="8dp" android:paddingEnd="8dp"
+                        android:paddingTop="2dp" android:paddingBottom="2dp"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView android:id="@+id/tvAbsent"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="A: 0"
+                        android:textColor="#E11D48" android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:background="@drawable/bg_pill_rose"
+                        android:paddingStart="8dp" android:paddingEnd="8dp"
+                        android:paddingTop="2dp" android:paddingBottom="2dp"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView android:id="@+id/tvTotalSub"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="T: 0"
+                        android:textColor="?attr/colorText2" android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:background="@drawable/bg_attend_pill"
+                        android:paddingStart="8dp" android:paddingEnd="8dp"
+                        android:paddingTop="2dp" android:paddingBottom="2dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Percentage badge -->
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginStart="12dp">
+
+                <TextView android:id="@+id/tvSubjectPct"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:gravity="center"
+                    android:text="0%"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-black"
+                    android:background="@drawable/bg_pct_circle"/>
+
+                <TextView android:id="@+id/tvSubjectStatus"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Low"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

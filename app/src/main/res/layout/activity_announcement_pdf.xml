@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="14dp" android:elevation="4dp">
+        <ImageView android:id="@+id/btnBack"
+            android:layout_width="48dp" android:layout_height="48dp"
+            android:src="@drawable/ic_back" android:padding="12dp"
+            android:contentDescription="Back" android:clickable="true" android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#FFFFFF"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_marginStart="4dp"
+            android:text="PDF Viewer"
+            android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold"/>
+        <ImageView android:layout_width="26dp" android:layout_height="26dp"
+            android:src="@drawable/ic_pdf" android:contentDescription="PDF"
+            app:tint="#AAFFEE"/>
+    </LinearLayout>
+
+    <!-- Loading state centre -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:orientation="vertical"
+        android:gravity="center" android:padding="32dp">
+        <ImageView android:layout_width="72dp" android:layout_height="72dp"
+            android:src="@drawable/ic_pdf" android:contentDescription="PDF"
+            android:layout_marginBottom="20dp"
+            app:tint="@color/primary_color"/>
+        <ProgressBar android:id="@+id/progressBar"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:indeterminateTint="@color/primary_color"/>
+        <TextView android:id="@+id/tvLoading"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="PDF load thaay chhe..."
+            android:textSize="14sp" android:textColor="?attr/colorControlNormal"
+            android:gravity="center"/>
+    </LinearLayout>
+</LinearLayout>

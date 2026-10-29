@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Outer circle -->
+    <path
+        android:strokeColor="?attr/colorControlNormal"
+        android:strokeWidth="1.8"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M12,22 A10,10 0 1,1 12,2 A10,10 0 1,1 12,22 Z" />
+
+    <!-- Question mark curve -->
+    <path
+        android:strokeColor="?attr/colorControlNormal"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M9,9 C9,7.3 10.3,6 12,6 C13.7,6 15,7.3 15,9 C15,10.7 13,11.5 12,13" />
+
+    <!-- Dot below -->
+    <path
+        android:fillColor="?attr/colorControlNormal"
+        android:pathData="M11,17 A1.2,1.2 0 1,1 13,17 A1.2,1.2 0 1,1 11,17 Z" />
+
+</vector>

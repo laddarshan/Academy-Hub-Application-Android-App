@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_notification.xml — Student notification card with WhatsApp-style PDF -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginTop="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <!-- Left icon box -->
+        <FrameLayout
+            android:id="@+id/notifIconBox"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="2dp">
+
+            <ImageView
+                android:id="@+id/notifIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:contentDescription="Notification Icon"/>
+        </FrameLayout>
+
+        <!-- Right content -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Top row: title + unread dot + time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Unread dot -->
+                <View
+                    android:id="@+id/unreadDot"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_avatar_circle"
+                    android:backgroundTint="#075E54"
+                    android:visibility="gone"/>
+
+                <!-- Title — clickable to show full dialog -->
+                <TextView
+                    android:id="@+id/tvNotifTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <!-- Time -->
+                <TextView
+                    android:id="@+id/tvNotifTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="?attr/colorControlNormal"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Important badge -->
+            <TextView
+                android:id="@+id/tvImportantBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚠ IMPORTANT"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="#C62828"
+                android:background="@drawable/bg_type_chip"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginTop="4dp"
+                android:visibility="gone"/>
+
+            <!-- Body text — tap to expand/collapse -->
+            <TextView
+                android:id="@+id/tvNotifBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginTop="4dp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- ── WhatsApp style PDF card ──────────────────────── -->
+            <LinearLayout
+                android:id="@+id/cardPdfAttachment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone">
+
+                <!-- PDF icon box — red like WhatsApp -->
+                <FrameLayout
+                    android:layout_width="42dp"
+                    android:layout_height="48dp"
+                    android:background="#FFE5E5"
+                    android:layout_marginEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_pdf"
+                        android:contentDescription="PDF"
+                        app:tint="#C62828"/>
+                </FrameLayout>
+
+                <!-- PDF name + subtitle -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvPdfFileName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"
+                        android:maxLines="2"
+                        android:ellipsize="end"/>
+
+                    <TextView
+                        android:id="@+id/tvPdfPages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PDF • Tap to open"
+                        android:textSize="11sp"
+                        android:textColor="?attr/colorControlNormal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <!-- Arrow icon -->
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="Open"
+                    android:rotation="180"
+                    android:layout_marginStart="8dp"
+                    app:tint="?attr/colorControlNormal"/>
+
+            </LinearLayout>
+            <!-- ── End PDF card ──────────────────────────────────── -->
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

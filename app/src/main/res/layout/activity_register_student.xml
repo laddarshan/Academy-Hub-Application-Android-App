@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#075E54"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="12dp"
+        android:elevation="6dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="48dp" android:layout_height="48dp"
+            android:src="@drawable/ic_back"
+            android:padding="12dp"
+            android:contentDescription="Back"
+            android:clickable="true" android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Register"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" android:textStyle="bold"
+            android:layout_marginStart="4dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="22dp" android:layout_height="22dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#FFFFFF"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <!-- SCROLLABLE FORM -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp" android:paddingEnd="16dp"
+            android:paddingTop="20dp" android:paddingBottom="8dp">
+
+            <!-- PHOTO -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingBottom="20dp">
+
+                <FrameLayout
+                    android:layout_width="96dp" android:layout_height="96dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivStudentProfile"
+                        android:layout_width="96dp" android:layout_height="96dp"
+                        android:src="@drawable/ic_student_default"
+                        app:civ_border_width="3dp"
+                        app:civ_border_color="#075E54"/>
+
+                    <FrameLayout
+                        android:id="@+id/btnSelectImage"
+                        android:layout_width="30dp" android:layout_height="30dp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/bg_camera_badge"
+                        android:clickable="true" android:focusable="true"
+                        android:elevation="4dp">
+                        <ImageView
+                            android:layout_width="16dp" android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_camera"
+                            android:contentDescription="Select photo"
+                            app:tint="#FFFFFF"/>
+                    </FrameLayout>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvRemovePhoto"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Remove Photo"
+                    android:textSize="12sp" android:textColor="#C62828"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:clickable="true" android:focusable="true"
+                    android:paddingStart="12dp" android:paddingEnd="12dp"
+                    android:paddingTop="4dp" android:paddingBottom="4dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Tap camera icon to add photo (optional)"
+                    android:textSize="11sp"
+                    android:textColor="?attr/colorControlNormal"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <!-- ========== SECTION: PERSONAL INFO ========== -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="PERSONAL INFORMATION"
+                android:textSize="10sp" android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:textColor="#075E54"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Full Name -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Full Name *"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/selector_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp">
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter full name"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"/>
+            </LinearLayout>
+
+            <!-- Mobile -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Mobile Number *"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/selector_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp">
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_mobile"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Mobile"
+                    app:tint="#075E54"/>
+                <EditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="10 digit mobile number"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="phone"
+                    android:maxLines="1" android:maxLength="10"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"/>
+            </LinearLayout>
+
+            <!-- Email -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Email Address *"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/selector_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp">
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_email"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Email"
+                    app:tint="#075E54"/>
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="student@email.com"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"/>
+            </LinearLayout>
+
+            <!-- Gender -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textSize="12sp"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:id="@+id/layoutGender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_person"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Gender"
+                    app:tint="#075E54"/>
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerGender"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Select gender"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:importantForAutofill="yes"/>
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Expand"
+                    android:rotation="90"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- Date of Birth -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Date of Birth"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:id="@+id/btnDOB"
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp"
+                android:clickable="true" android:focusable="true">
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Calendar"/>
+                <TextView
+                    android:id="@+id/etDOB"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Select date of birth"
+                    android:textSize="14sp"
+                    android:textColor="#AAAAAA"/>
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Open"
+                    android:rotation="90"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- Address -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:gravity="top"
+                android:background="@drawable/selector_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:paddingTop="10dp"
+                android:layout_marginBottom="24dp">
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_location"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="2dp"
+                    android:contentDescription="Address"
+                    app:tint="#075E54"/>
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Full address"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="textMultiLine"
+                    android:gravity="top"
+                    android:minLines="2" android:maxLines="3"
+                    android:importantForAutofill="no"/>
+            </LinearLayout>
+
+            <!-- ========== SECTION: ACADEMIC INFO ========== -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="ACADEMIC INFORMATION"
+                android:textSize="10sp" android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:textColor="#075E54"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Session -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Session *"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp">
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_session"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Session"
+                    app:tint="#075E54"/>
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerSession"
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Select session"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:importantForAutofill="no"/>
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Expand"
+                    android:rotation="90"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- Course -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Course *"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp">
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_courses"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Course"
+                    app:tint="#075E54"/>
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerCourse"
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Select course"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:importantForAutofill="no"/>
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Expand"
+                    android:rotation="90"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- Year -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Year *"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp"
+                android:alpha="0.5">
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerYear"
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Select course first"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:enabled="false"
+                    android:importantForAutofill="no"/>
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Expand"
+                    android:rotation="90"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- Semester -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Semester *"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="14dp"
+                android:alpha="0.5">
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerSemester"
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Select year first"
+                    android:textColorHint="#AAAAAA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:enabled="false"
+                    android:importantForAutofill="no"/>
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Expand"
+                    android:rotation="90"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- Batch -->
+            <!-- Admission Date -->
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Admission Date"
+                android:textSize="12sp" android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:id="@+id/btnAdmissionDate"
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:layout_marginBottom="24dp"
+                android:clickable="true" android:focusable="true">
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Calendar"/>
+                <TextView
+                    android:id="@+id/etAdmissionDate"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Select admission date"
+                    android:textSize="14sp"
+                    android:textColor="#AAAAAA"/>
+                <ImageView
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Open"
+                    android:rotation="90"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- ========== SECTION: STATUS ========== -->
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- SAVE BUTTON — fixed bottom -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp" android:layout_marginBottom="16dp"
+        android:text="Save Student"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" android:textStyle="bold"
+        android:textAllCaps="false"
+        app:backgroundTint="#075E54"
+        app:cornerRadius="14dp"
+        app:icon="@drawable/ic_step_done"
+        app:iconTint="#FFFFFF"
+        app:iconGravity="textStart"/>
+
+</LinearLayout>

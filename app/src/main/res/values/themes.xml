@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base Application Theme with DayNight Support -->
+    <style name="Base.Theme.AcademyHub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_color</item>
+        <item name="colorSecondaryVariant">@color/accent_color</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/background_color</item>
+        <item name="android:colorBackground">@color/background_color</item>
+        <item name="colorSurface">@color/surface_color</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Action</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════
+         Main App Theme — LIGHT
+    ════════════════════════════════════════════════ -->
+    <style name="Theme.AcademyHub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_color</item>
+        <item name="colorSecondaryVariant">@color/accent_color</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Background — #F2F6F5 (light greenish white) -->
+        <item name="android:colorBackground">#F2F6F5</item>
+        <item name="android:windowBackground">#F2F6F5</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+
+        <!-- Surface (cards) — white -->
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <item name="colorControlNormal">@color/text_secondary</item>
+        <item name="colorError">#E11D48</item>
+        <item name="colorOnError">@color/white</item>
+
+        <item name="android:statusBarColor">#075E54</item>
+        <item name="android:navigationBarColor">#F2F6F5</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Action</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
+
+        <!-- ── Custom attrs (User Dashboard) ── -->
+        <item name="colorText1">#0D1F1C</item>
+        <item name="colorText2">#4A6360</item>
+        <item name="colorTextMuted">#8AABA7</item>
+        <item name="colorSurface2">#EBF2F1</item>
+        <item name="colorBorder">#1A075E54</item>
+        <item name="colorTeal2">#128C7E</item>
+        <item name="colorNavBg">#FFFFFF</item>
+        <item name="colorError2">#E11D48</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════
+         Splash Screen Theme
+    ════════════════════════════════════════════════ -->
+    <style name="Theme.AcademyHub.Splash" parent="Theme.AcademyHub">
+        <item name="android:windowBackground">@color/primary_color</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════
+         Dialog Theme
+    ════════════════════════════════════════════════ -->
+    <style name="Theme.AcademyHub.Dialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:background">@color/surface_color</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════
+         Tab Text Appearance
+    ════════════════════════════════════════════════ -->
+    <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════
+         Bottom Sheet
+    ════════════════════════════════════════════════ -->
+    <style name="BottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetStyle</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="AppBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="behavior_peekHeight">400dp</item>
+        <item name="behavior_hideable">true</item>
+        <item name="android:fontFamily">@font/plus_jakarta_sans_extrabold</item>
+    </style>
+
+</resources>

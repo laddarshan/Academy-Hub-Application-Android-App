@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- TEAL HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="@color/primary_color"
+        android:paddingStart="4dp" android:paddingEnd="16dp"
+        android:paddingTop="32dp" android:paddingBottom="12dp"
+        android:elevation="4dp">
+        <ImageView android:id="@+id/btnBack"
+            android:layout_width="48dp" android:layout_height="48dp"
+            android:src="@drawable/ic_back" android:padding="12dp"
+            android:contentDescription="Back" android:clickable="true" android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#FFFFFF"/>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:layout_marginStart="4dp">
+            <TextView android:id="@+id/tvHeaderTitle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Add Session"
+                android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Create academic year session"
+                android:textColor="#AAFFEE" android:textSize="11sp" android:layout_marginTop="2dp"/>
+        </LinearLayout>
+        <ImageView android:layout_width="26dp" android:layout_height="26dp"
+            android:src="@drawable/ic_session" android:contentDescription="Session"
+            app:tint="#AAFFEE"/>
+    </LinearLayout>
+
+    <!-- Progress -->
+    <ProgressBar android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_color"
+        android:visibility="gone"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:overScrollMode="never">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp" android:paddingEnd="16dp"
+            android:paddingTop="20dp" android:paddingBottom="32dp">
+
+            <!-- Section label -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <View android:layout_width="3dp" android:layout_height="16dp"
+                    android:background="@drawable/bg_timetable_left_bar" android:layout_marginEnd="8dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="SESSION INFORMATION"
+                    android:textSize="11sp" android:textStyle="bold"
+                    android:textColor="@color/primary_color" android:letterSpacing="0.08"/>
+            </LinearLayout>
+
+            <!-- Year inputs row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+
+                <!-- Start Year -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical"
+                    android:layout_marginEnd="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Start Year"
+                        android:textSize="12sp" android:textStyle="bold"
+                        android:textColor="?attr/colorControlNormal"
+                        android:layout_marginBottom="6dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="52dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:background="@drawable/bg_section_card"
+                        android:paddingStart="12dp" android:paddingEnd="8dp">
+                        <EditText android:id="@+id/etStartYear"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:hint="2024"
+                            android:textSize="16sp" android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface"
+                            android:inputType="number" android:maxLength="4"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- End Year -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="End Year"
+                        android:textSize="12sp" android:textStyle="bold"
+                        android:textColor="?attr/colorControlNormal"
+                        android:layout_marginBottom="6dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="52dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:background="@drawable/bg_section_card"
+                        android:paddingStart="12dp" android:paddingEnd="8dp">
+                        <EditText android:id="@+id/etEndYear"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:hint="2025"
+                            android:textSize="16sp" android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface"
+                            android:inputType="number" android:maxLength="4"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Auto-generated session name -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="52dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="12dp"
+                android:paddingStart="14dp" android:paddingEnd="14dp">
+                <FrameLayout android:layout_width="32dp" android:layout_height="32dp"
+                    android:background="@drawable/bg_status_active">
+                    <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_session"
+                        android:contentDescription="Session" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <EditText android:id="@+id/etSessionName"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="12dp"
+                    android:background="@android:color/transparent"
+                    android:hint="2024-2025 (auto)"
+                    android:textSize="14sp" android:textColor="?attr/colorOnSurface"
+                    android:enabled="false" android:alpha="0.7"/>
+            </LinearLayout>
+
+            <!-- Start Date -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Start Date"
+                android:textSize="12sp" android:textStyle="bold"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="6dp"/>
+            <LinearLayout android:id="@+id/rowStartDate"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="12dp"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="32dp" android:layout_height="32dp"
+                    android:background="@drawable/bg_stat_circle_teal">
+                    <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_calendar"
+                        android:contentDescription="Date" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView android:id="@+id/etStartDate"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="12dp"
+                    android:text="Select start date"
+                    android:textSize="14sp" android:textColor="?attr/colorControlNormal"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_right" android:contentDescription="Pick"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- End Date -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="End Date"
+                android:textSize="12sp" android:textStyle="bold"
+                android:textColor="?attr/colorControlNormal"
+                android:layout_marginBottom="6dp"/>
+            <LinearLayout android:id="@+id/rowEndDate"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="16dp"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="32dp" android:layout_height="32dp"
+                    android:background="@drawable/bg_stat_circle_teal">
+                    <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_calendar"
+                        android:contentDescription="Date" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView android:id="@+id/etEndDate"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="12dp"
+                    android:text="Select end date"
+                    android:textSize="14sp" android:textColor="?attr/colorControlNormal"/>
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_right" android:contentDescription="Pick"
+                    app:tint="?attr/colorControlNormal"/>
+            </LinearLayout>
+
+            <!-- Set as Current toggle row -->
+            <LinearLayout android:id="@+id/rowSetCurrent"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/bg_section_card"
+                android:layout_marginBottom="24dp"
+                android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="32dp" android:layout_height="32dp"
+                    android:background="@drawable/bg_stat_circle_teal">
+                    <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                        android:layout_gravity="center" android:src="@drawable/ic_step_done"
+                        android:contentDescription="Current" app:tint="#FFFFFF"/>
+                </FrameLayout>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="12dp"
+                    android:text="Set as current active session"
+                    android:textSize="14sp" android:textColor="?attr/colorOnSurface"/>
+                <CheckBox android:id="@+id/cbSetCurrent"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:buttonTint="@color/primary_color"/>
+            </LinearLayout>
+
+            <!-- Save Button -->
+            <LinearLayout android:id="@+id/btnSave"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:orientation="horizontal" android:gravity="center"
+                android:background="@drawable/bg_upload_btn"
+                android:clickable="true" android:focusable="true">
+                <ImageView android:layout_width="18dp" android:layout_height="18dp"
+                    android:src="@drawable/ic_step_done" android:contentDescription="Save"
+                    android:layout_marginEnd="8dp" app:tint="#FFFFFF"/>
+                <TextView android:id="@+id/tvSaveLabel"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Save Session"
+                    android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

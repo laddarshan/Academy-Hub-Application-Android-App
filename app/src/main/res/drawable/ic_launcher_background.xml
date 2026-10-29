@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Launcher Background — AcademyHub
+    Same dark color as bg_logo_rounded.xml (#2C3E50)
+    Place in: res/drawable/ic_launcher_background.xml
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#2C3E50" />
+</shape>

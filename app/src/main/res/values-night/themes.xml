@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base Dark Theme -->
+    <style name="Base.Theme.AcademyHub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_color</item>
+        <item name="colorSecondaryVariant">@color/accent_color</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/background_color</item>
+        <item name="android:colorBackground">@color/background_color</item>
+        <item name="colorSurface">@color/surface_color</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Action</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════
+         Main App Theme — DARK (Night)
+    ════════════════════════════════════════════════ -->
+    <style name="Theme.AcademyHub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#1ABC9C</item>
+        <item name="colorPrimaryVariant">#16A085</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#1ABC9C</item>
+        <item name="colorSecondaryVariant">#16A085</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <!-- Background — #0A1614 (very dark teal-black) -->
+        <item name="android:colorBackground">#050706</item>
+        <item name="android:windowBackground">#0B0E0E</item>
+        <item name="colorOnBackground">#E8F4F2</item>
+
+        <!-- Surface (dark cards) — #131F1D -->
+        <item name="colorSurface">#080B0B</item>
+        <item name="colorOnSurface">#E8F4F2</item>
+
+        <item name="colorControlNormal">#8FA6B5</item>
+        <item name="colorError">#FF6B6B</item>
+        <item name="colorOnError">#FFFFFF</item>
+
+        <item name="android:statusBarColor">#0A1614</item>
+        <item name="android:navigationBarColor">#131F1D</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+
+        <item name="android:textColorPrimary">#E8F4F2</item>
+        <item name="android:textColorSecondary">#8AABA7</item>
+        <item name="android:textColorHint">#4A6360</item>
+
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Action</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
+
+        <!-- ── Custom attrs (User Dashboard) ── -->
+        <item name="colorText1">#E8F4F2</item>
+        <item name="colorText2">#8AABA7</item>
+        <item name="colorTextMuted">#4A6360</item>
+        <item name="colorSurface2">#1C2E2B</item>
+        <item name="colorBorder">#1425D366</item>
+        <item name="colorTeal2">#25D366</item>
+        <item name="colorNavBg">#131F1D</item>
+        <item name="colorError2">#FF6B6B</item>
+    </style>
+
+</resources>

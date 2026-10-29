@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- ══════════════════════════ HEADER ══════════════════════════ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#075E54"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="14dp"
+        android:elevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_back"
+                android:padding="6dp"
+                android:contentDescription="Back"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#FFFFFF" />
+
+            <!-- Student name + roll -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/tvStudentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Name"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/tvRollNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roll: --"
+                    android:textColor="#AAFFEE"
+                    android:textSize="11sp"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+            <!-- Overall % — white pill badge -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_overall_pill"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp">
+
+                <TextView
+                    android:id="@+id/tvOverallPercentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="#075E54"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="overall"
+                    android:textColor="#075E54"
+                    android:textSize="9sp"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Thin horizontal progress bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#075E54"
+        android:visibility="gone" />
+
+    <!-- ══ SUBJECT TABLE HEADER ══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="?attr/colorSurface">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SUBJECT"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:textColor="?attr/colorControlNormal" />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="ATTENDANCE %"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.04"
+            android:textColor="?attr/colorControlNormal"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorControlHighlight" />
+
+    <!-- No subjects placeholder -->
+    <TextView
+        android:id="@+id/tvNoSubjects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="No subjects found for this semester"
+        android:textSize="14sp"
+        android:textColor="?attr/colorControlNormal"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <!-- Subject list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSubjects"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
+    <!-- ══ SAVE BUTTON ══ -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:text="Save Attendance"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        app:backgroundTint="#075E54"
+        app:cornerRadius="14dp"
+        app:icon="@drawable/ic_step_done"
+        app:iconTint="#FFFFFF"
+        app:iconGravity="textStart" />
+
+</LinearLayout>

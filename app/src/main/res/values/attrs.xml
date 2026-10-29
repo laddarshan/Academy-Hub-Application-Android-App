@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorText1" format="color" />
+    <attr name="colorText2" format="color" />
+    <attr name="colorTextMuted" format="color" />
+    <attr name="colorSurface" format="color" />
+    <attr name="colorSurface2" format="color" />
+    <attr name="colorBorder" format="color" />
+    <attr name="colorTeal2" format="color" />
+    <attr name="colorNavBg" format="color" />
+    <attr name="colorError2" format="color" />
+</resources>
